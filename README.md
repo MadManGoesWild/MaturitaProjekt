@@ -1,6 +1,7 @@
 # MaturitaProjekt
 Projekt určený k maturitě
 
+<b>Cíl projektu</b>
 
 Co je potřeba udělat:
 1. Vykreslení mapy
