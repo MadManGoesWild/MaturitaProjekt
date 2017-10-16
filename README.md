@@ -7,10 +7,11 @@ Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace 
 
 <b>Co je potřeba udělat:</b>
 1. Vykreslení mapy ✓
-2. Úprava rozhraní
-3. Server, přes který se připojí do map ostatní klienti
-4. Vykreslení polohy klienta
-5. Vykreslení všech klientů
+2. Počáteční poloha podle polohy wifi ✓
+3. Úprava rozhraní
+4. Server, přes který se připojí do map ostatní klienti
+5. Vykreslení polohy klienta
+6. Vykreslení všech klientů
 
 <b>Materiály:</b>
 Google maps API nebo Openstreet map
@@ -20,3 +21,9 @@ Java nebo Javascript
 
 <b>Předloha:</b>
 Marauders Map Facebook
+
+<b>Další zdroje:</b>
+https://www.w3schools.com/html/html5_geolocation.asp
+
+<i>15.10.2017</i>
+Počáteční poloha mapy se vykresluje podle polohy WiFi.
