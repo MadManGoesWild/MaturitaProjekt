@@ -29,5 +29,7 @@ https://www.w3schools.com/html/html5_geolocation.asp
 
 
 <i>01.10.2017</i> - Vykreslení mapy.
+
 <i>09.10.2017</i> - Opravení problému s API.
+
 <i>15.10.2017</i> - Počáteční poloha mapy se vykresluje podle polohy WiFi.
