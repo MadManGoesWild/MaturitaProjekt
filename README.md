@@ -25,5 +25,4 @@ Marauders Map Facebook
 <b>Další zdroje:</b>
 https://www.w3schools.com/html/html5_geolocation.asp
 
-<i>15.10.2017</i>
-Počáteční poloha mapy se vykresluje podle polohy WiFi.
+<i>15.10.2017</i> Počáteční poloha mapy se vykresluje podle polohy WiFi.
