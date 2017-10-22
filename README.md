@@ -20,7 +20,7 @@ Google maps API nebo Openstreet map
 Java nebo Javascript
 
 <b>Předloha:</b>
-Marauders Map Facebook
+Marauders Map, Facebook Live Location
 
 <b>Další zdroje:</b>
 https://www.w3schools.com/html/html5_geolocation.asp
@@ -33,3 +33,5 @@ https://www.w3schools.com/html/html5_geolocation.asp
 <i>09.10.2017</i> - Opravení problému s API.
 
 <i>15.10.2017</i> - Počáteční poloha mapy se vykresluje podle polohy WiFi.
+
+<i>22.10.2017</i> - Změna API celých map, přechod na Google Maps z důvodu více funkcí, přehlednější, jednodušší, méně souborů a kódu.
