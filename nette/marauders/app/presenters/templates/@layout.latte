@@ -1,0 +1,45 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Marauder's Map</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{$basePath}/css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	{block head}{/block}
+</head>
+
+<body>
+    {if $user->isLoggedIn()}
+    <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-nav">Marauder's Map</a></li>
+        <li><a class="navbar-nav" n:href="Sign:out">Odhlasit</a></li>
+        <li><a class="navbar-nav" n:href="default">Informace</a></li>
+    </nav>
+    {else}
+        <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-nav">Marauder's Map</a></li>
+        <li><a class="navbar-nav" n:href="Sign:Up">Registrace</a></li>
+        <li><a class="navbar-nav" n:href="Sign:in">Prihlasit se</a></li>
+        <li><a class="navbar-nav" n:href="default">Informace</a></li>
+    </nav>
+    {/if}    
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+        
+	{include content}
+        
+        {block scripts}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	{/block}
+</body>
+</html>

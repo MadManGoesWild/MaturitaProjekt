@@ -1,0 +1,32 @@
+{* This is the welcome page, you can delete it *}
+{block head}
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+{/block}
+{block content}
+
+<div id="content">
+
+</div>
+<div id="map"></div>
+        
+{/block}
+
+{block scripts}
+{include parent}        
+	<script src="test.js"></script>
+        <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4pGibItpUEhjGsEydo_s38kRoelW46a4&callback=initMap">
+    </script>
+{/block}
