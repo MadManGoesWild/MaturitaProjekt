@@ -14,7 +14,7 @@ Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace 
 6. Úprava rozhraní
 
 <b>Materiály:</b>
-Google maps API nebo Openstreet map
+Google maps API, Nette
 
 <b>Jazyk:</b>
 Javascript, PHP
@@ -23,11 +23,11 @@ Javascript, PHP
 Marauders Map, Facebook Live Location
 
 <b>Další zdroje:</b>
-https://www.w3schools.com/html/html5_geolocation.asp
-
-https://developers.google.com/maps/documentation/javascript/adding-a-google-map
-
-https://nette.org/
+<ul>
+  <li>https://www.w3schools.com/html/html5_geolocation.asp<li>
+  <li>https://developers.google.com/maps/documentation/javascript/adding-a-google-map</li>
+  <li>https://nette.org/</li>
+</ul>
 
 <b>Změny:</b>
 
