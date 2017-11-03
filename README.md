@@ -24,7 +24,7 @@ Marauders Map, Facebook Live Location
 
 <b>Další zdroje:</b>
 <ul>
-  <li>https://www.w3schools.com/html/html5_geolocation.asp<li>
+  <li>https://www.w3schools.com/html/html5_geolocation.asp</li>
   <li>https://developers.google.com/maps/documentation/javascript/adding-a-google-map</li>
   <li>https://nette.org/</li>
 </ul>
