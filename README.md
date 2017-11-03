@@ -9,7 +9,7 @@ Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace 
 1. Vykreslení mapy ✓
 2. Počáteční poloha podle polohy wifi ✓
 3. Vykreslení polohy klienta ✓
-4. Funkčnost přihlášení, registrace a odhlášení
+4. Funkčnost přihlášení, registrace a odhlášení ✓
 5. Vykreslení všech klientů
 6. Úprava rozhraní
 
