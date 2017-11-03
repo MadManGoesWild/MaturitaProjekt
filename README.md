@@ -6,12 +6,14 @@ Při připojení do aplikace je možné vidět vzájemná poloha všech uživate
 Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace o uživateli.
 
 <b>Co je potřeba udělat:</b>
-1. Vykreslení mapy ✓
-2. Počáteční poloha podle polohy wifi ✓
-3. Vykreslení polohy klienta ✓
-4. Funkčnost přihlášení, registrace a odhlášení ✓
-5. Vykreslení všech klientů
-6. Úprava rozhraní
+<ol>
+  <li>Vykreslení mapy ✓</li>
+Počáteční poloha podle polohy wifi ✓
+Vykreslení polohy klienta ✓
+Funkčnost přihlášení, registrace a odhlášení ✓
+Vykreslení všech klientů
+Úprava rozhraní
+  </ol>
 
 <b>Materiály:</b>
 Google maps API, Nette
