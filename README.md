@@ -39,3 +39,5 @@ https://nette.org/
 <i>22.10.2017</i> - Změna API celých map, přechod na Google Maps z důvodu více funkcí, přehlednější, jednodušší, méně souborů a kódu.
 
 <i>29.10.2017</i> - Začátek práce v Nette, vykreslení mapy, přihlášení, registrace, odhlášení, úprava vzhledu.
+
+<i>03.11.2017</i> - Oprava přihlášení, registrace, odhlášení, vše již plně funkční. Možná upravit po registraci automatické přihlášení.
