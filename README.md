@@ -8,11 +8,11 @@ Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace 
 <b>Co je potřeba udělat:</b>
 <ol>
   <li>Vykreslení mapy ✓</li>
-Počáteční poloha podle polohy wifi ✓
-Vykreslení polohy klienta ✓
-Funkčnost přihlášení, registrace a odhlášení ✓
-Vykreslení všech klientů
-Úprava rozhraní
+<li>Počáteční poloha podle polohy wifi ✓</li>
+<li>Vykreslení polohy klienta ✓</li>
+<li>Funkčnost přihlášení, registrace a odhlášení ✓</li>
+<li>Vykreslení všech klientů</li>
+<li>Úprava rozhraní</li>
   </ol>
 
 <b>Materiály:</b>
