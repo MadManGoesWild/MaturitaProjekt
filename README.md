@@ -16,13 +16,13 @@ Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace 
   </ol>
 
 <b>Materiály:</b>
-Google maps API, Nette
+<p>Google maps API, Nette</p>
 
 <b>Jazyk:</b>
-Javascript, PHP
+<p>Javascript, PHP</p>
 
 <b>Předloha:</b>
-Marauders Map, Facebook Live Location
+<p>Marauders Map, Facebook Live Location</p>
 
 <b>Další zdroje:</b>
 <ul>
@@ -33,15 +33,17 @@ Marauders Map, Facebook Live Location
 
 <b>Změny:</b>
 
+<ul>
+<li><i>01.10.2017</i> - Vykreslení mapy.
 
-<i>01.10.2017</i> - Vykreslení mapy.
+<li><i>09.10.2017</i> - Opravení problému s API.
 
-<i>09.10.2017</i> - Opravení problému s API.
+<li><i>15.10.2017</i> - Počáteční poloha mapy se vykresluje podle polohy WiFi.
 
-<i>15.10.2017</i> - Počáteční poloha mapy se vykresluje podle polohy WiFi.
+<li><i>22.10.2017</i> - Změna API celých map, přechod na Google Maps z důvodu více funkcí, přehlednější, jednodušší, méně souborů a kódu.
 
-<i>22.10.2017</i> - Změna API celých map, přechod na Google Maps z důvodu více funkcí, přehlednější, jednodušší, méně souborů a kódu.
+<li><i>29.10.2017</i> - Začátek práce v Nette, vykreslení mapy, přihlášení, registrace, odhlášení, úprava vzhledu.
 
-<i>29.10.2017</i> - Začátek práce v Nette, vykreslení mapy, přihlášení, registrace, odhlášení, úprava vzhledu.
+<li><i>03.11.2017</i> - Oprava přihlášení, registrace, odhlášení, vše již plně funkční. Možná upravit po registraci automatické přihlášení.
 
-<i>03.11.2017</i> - Oprava přihlášení, registrace, odhlášení, vše již plně funkční. Možná upravit po registraci automatické přihlášení.
+</ul>
