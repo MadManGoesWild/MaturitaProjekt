@@ -2,6 +2,11 @@
 return array (
   0 => 
   array (
+    'App\\Acl\\Acl' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\acl\\Acl.php',
+      'time' => 1509307101,
+    ),
     'App\\Forms\\FormFactory' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\forms\\FormFactory.php',
@@ -10,22 +15,22 @@ return array (
     'App\\Forms\\SignInFormFactory' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\forms\\SignInFormFactory.php',
-      'time' => 1504886050,
+      'time' => 1510068598,
     ),
     'App\\Forms\\SignUpFormFactory' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\forms\\SignUpFormFactory.php',
-      'time' => 1504886050,
+      'time' => 1510068503,
     ),
     'App\\Model\\UserManager' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1504886050,
+      'time' => 1510068569,
     ),
     'App\\Model\\DuplicateNameException' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1504886050,
+      'time' => 1510068569,
     ),
     'App\\Presenters\\BasePresenter' => 
     array (
@@ -60,6 +65,7 @@ return array (
   ),
   1 => 
   array (
-    'Nette\\Environment' => 3,
+    'Nette\\Environment' => 6,
+    'App\\Presenters\\mapPresenter' => 3,
   ),
 );

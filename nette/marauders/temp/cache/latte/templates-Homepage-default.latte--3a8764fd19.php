@@ -23,9 +23,6 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 		extract($this->params);
 		if ($this->getParentName()) return get_defined_vars();
 		$this->renderBlock('head', get_defined_vars());
-?>
-
-<?php
 		$this->renderBlock('content', get_defined_vars());
 ?>
 
@@ -55,7 +52,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 100%;
+        height: 90%;
         margin: 0;
         padding: 0;
       }
@@ -66,12 +63,20 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 
 	function blockContent($_args)
 	{
-?><div id="content">
+		extract($_args);
+?>
+
+<div id="content">
 
 </div>
-<div id="map"></div>
-        
+
 <?php
+		if ($user->isLoggedIn()) {
+?>
+    <div id="map"></div>
+<?php
+		}
+		
 	}
 
 

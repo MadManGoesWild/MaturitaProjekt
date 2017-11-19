@@ -30,7 +30,7 @@
             <li><a class="navbar-nav">Marauder's Map</a></li>
         <li><a class="navbar-nav" n:href="Sign:Up">Registrace</a></li>
         <li><a class="navbar-nav" n:href="Sign:in">Prihlasit se</a></li>
-        <li><a class="navbar-nav" n:href="Homepage:default">Informace</a></li>
+        <li><a class="navbar-nav" n:href="default">Informace</a></li>
     </nav>
     {/if}    
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>

@@ -68,10 +68,13 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 			$iterations++;
 		}
 ?>
-        
+           
 <?php
 		$this->renderBlock('content', $this->params, 'html');
 ?>
+        
+        <footer class="panel ">
+                <p  class="panel-body">Copyright &copy; SŠPU Opava, Antonín Dulava 2017</p>
         
 <?php
 		$this->renderBlock('scripts', get_defined_vars());

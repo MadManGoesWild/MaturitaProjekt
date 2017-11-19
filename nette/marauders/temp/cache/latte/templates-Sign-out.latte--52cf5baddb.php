@@ -1,9 +1,9 @@
 <?php
-// source: C:\xampp\htdocs\marauders\app\presenters/templates/Sign/up.latte
+// source: C:\xampp\htdocs\marauders\app\presenters/templates/Sign/out.latte
 
 use Latte\Runtime as LR;
 
-class Template0ada74d4cb extends Latte\Runtime\Template
+class Template52cf5baddb extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'content' => 'blockContent',
@@ -39,13 +39,7 @@ class Template0ada74d4cb extends Latte\Runtime\Template
 		$this->renderBlock('title', get_defined_vars());
 ?>
 
-<?php
-		/* line 4 */ $_tmp = $this->global->uiControl->getComponent("signUpForm");
-		if ($_tmp instanceof Nette\Application\UI\IRenderable) $_tmp->redrawControl(null, false);
-		$_tmp->render();
-?>
-
-<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("in")) ?>">Už máš účet? Přihlaš se!</a></p>
+<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("in")) ?>">Přihlaš se k dalšímu účtu</a></p>
 <?php
 	}
 
@@ -53,7 +47,7 @@ class Template0ada74d4cb extends Latte\Runtime\Template
 	function blockTitle($_args)
 	{
 		extract($_args);
-?><h1>Registrovat se</h1>
+?><h1>Úspěšně jsi byl odhlášen</h1>
 <?php
 	}
 

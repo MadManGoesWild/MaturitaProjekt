@@ -32,21 +32,21 @@ class SignInFormFactory
 	{
 		$form = $this->factory->create();
 		$form->addText('username', 'Username:')
-			->setRequired('Please enter your username.');
+			->setRequired('Vlož prosím své uživatelské jméno.');
 
 		$form->addPassword('password', 'Password:')
-			->setRequired('Please enter your password.');
+			->setRequired('Vlož prosím své heslo.');
 
-		$form->addCheckbox('remember', 'Keep me signed in');
+		$form->addCheckbox('remember', ' Zapamatuj si mě');
 
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('send', 'Přihlásit se');
 
 		$form->onSuccess[] = function (Form $form, $values) use ($onSuccess) {
 			try {
 				$this->user->setExpiration($values->remember ? '14 days' : '20 minutes');
 				$this->user->login($values->username, $values->password);
 			} catch (Nette\Security\AuthenticationException $e) {
-				$form->addError('The username or password you entered is incorrect.');
+				$form->addError('Uživatelské jméno nebo heslo není správné!');
 				return;
 			}
 			$onSuccess();

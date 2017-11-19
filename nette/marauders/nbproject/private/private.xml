@@ -5,8 +5,6 @@
         <group>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/HomepagePresenter.php</file>
             <file>file:/C:/xampp/htdocs/marauders/app/acl/Acl.php</file>
-            <file>file:/C:/xampp/htdocs/marauders/app/config/config.local.neon</file>
-            <file>file:/C:/xampp/htdocs/marauders/app/config/config.neon</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/@layout.latte</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/Homepage/default.latte</file>
         </group>

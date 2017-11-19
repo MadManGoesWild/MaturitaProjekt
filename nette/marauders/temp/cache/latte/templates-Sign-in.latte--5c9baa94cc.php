@@ -45,7 +45,7 @@ class Template5c9baa94cc extends Latte\Runtime\Template
 		$_tmp->render();
 ?>
 
-<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("up")) ?>">Don't have an account yet? Sign up.</a></p>
+<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("up")) ?>">Ještě nemáš účet? Zaregistruj se!</a></p>
 <?php
 	}
 
@@ -53,7 +53,7 @@ class Template5c9baa94cc extends Latte\Runtime\Template
 	function blockTitle($_args)
 	{
 		extract($_args);
-?><h1>Sign In</h1>
+?><h1>Přihlásit se</h1>
 <?php
 	}
 

@@ -33,24 +33,24 @@ class SignUpFormFactory
 	public function create(callable $onSuccess)
 	{
 		$form = $this->factory->create();
-		$form->addText('username', 'Pick a username:')
-			->setRequired('Please pick a username.');
+		$form->addText('username', 'Vyber si uživatelské jméno:')
+			->setRequired('Vyber si prosím své uživatelské jméno.');
 
-		$form->addEmail('email', 'Your e-mail:')
-			->setRequired('Please enter your e-mail.');
+		$form->addEmail('email', 'Zadej svůj email:')
+			->setRequired('Zadej prosím svůj email.');
 
-		$form->addPassword('password', 'Create a password:')
+		$form->addPassword('password', 'Zadej heslo:')
 			->setOption('description', sprintf('at least %d characters', self::PASSWORD_MIN_LENGTH))
-			->setRequired('Please create a password.')
+			->setRequired('Prosím zadej své heslo')
 			->addRule($form::MIN_LENGTH, null, self::PASSWORD_MIN_LENGTH);
 
-		$form->addSubmit('send', 'Sign up');
+		$form->addSubmit('send', 'Zaregistrovat se');
 
 		$form->onSuccess[] = function (Form $form, $values) use ($onSuccess) {
 			try {
 				$this->userManager->add($values->username, $values->email, $values->password);
 			} catch (Model\DuplicateNameException $e) {
-				$form['username']->addError('Username is already taken.');
+				$form['username']->addError('Uživatelské jméno již existuje!');
 				return;
 			}
 			$onSuccess();

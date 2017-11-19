@@ -19,8 +19,10 @@
 <div id="content">
 
 </div>
-<div id="map"></div>
-        
+
+{if $user->isLoggedIn()}
+    <div id="map"></div>
+{/if}  
 {/block}
 
 {block scripts}
