@@ -47,5 +47,7 @@ Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace 
 <li><i>03.11.2017</i> - Oprava přihlášení, registrace, odhlášení, vše již plně funkční. Možná upravit po registraci automatické přihlášení.
   
 <li><i>20.11.2017</i> - Tvorba domovské stránky.
+  
+<li><i>26.11.2017</i> - Markery.
 
 </ul>
