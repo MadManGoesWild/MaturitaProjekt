@@ -18,9 +18,12 @@
               lng: position.coords.longitude
             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Poloha uživatele.');
-            infoWindow.open(map);
+            var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            title: 'Tady se nachází uživatel!'
+            });
+
             map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());

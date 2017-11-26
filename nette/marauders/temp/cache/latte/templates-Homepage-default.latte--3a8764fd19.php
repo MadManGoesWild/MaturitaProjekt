@@ -85,7 +85,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 		extract($_args);
 		$this->renderBlockParent('scripts', get_defined_vars());
 ?>
-	<script src="test.js"></script>
+	<script src="functions.js"></script>
         <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4pGibItpUEhjGsEydo_s38kRoelW46a4&callback=initMap">
     </script>
