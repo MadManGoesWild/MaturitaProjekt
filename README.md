@@ -45,5 +45,7 @@ Uživatelé jsou značeni jako ikony s fotkou. Ikona obsahuje další informace 
 <li><i>29.10.2017</i> - Začátek práce v Nette, vykreslení mapy, přihlášení, registrace, odhlášení, úprava vzhledu.
 
 <li><i>03.11.2017</i> - Oprava přihlášení, registrace, odhlášení, vše již plně funkční. Možná upravit po registraci automatické přihlášení.
+  
+<li><i>20.11.2017</i> - Tvorba domovské stránky.
 
 </ul>
