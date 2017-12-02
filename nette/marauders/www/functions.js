@@ -8,6 +8,7 @@
           center: {lat: 49.93866, lng: 17.90257},
           zoom: 14
         });
+
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
@@ -18,16 +19,24 @@
               lng: position.coords.longitude
             };
 
+            map.setCenter(pos);
+
             var marker = new google.maps.Marker({
             position: pos,
             map: map,
+            label: "Uživatel",
             title: 'Tady se nachází uživatel!'
-            });
+            });          
 
-            map.setCenter(pos);
-          }, function() {
+            marker.addListener('click', function() {
+              window.alert("Hello.");
+            });
+          }, 
+
+          function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
+
         } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());

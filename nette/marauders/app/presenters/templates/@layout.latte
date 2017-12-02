@@ -13,25 +13,28 @@
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+        
 	{block head}{/block}
 </head>
 
 <body>
     {if $user->isLoggedIn()}
-    <nav class="navbar navbar-inverse">
-        <ul class="nav navbar-nav">
-            <li><a class="navbar-nav">Marauder's Map</a></li>
-        <li><a class="navbar-nav" n:href="Sign:out">Odhlasit</a></li>
-        <li><a class="navbar-nav" n:href="default">Informace</a></li>
-    </nav>
+        <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav">
+                <li><a class="nav navbar-nav" n:href="default"><i class="fa fa-compass" aria-hidden="true" 
+                       style="color: white;">  Marauder's Map</i></a></li>
+                <li><a class="nav navbar-nav" n:href="Sign:out"><i class="fa fa-sign-out" aria-hidden="true">  Odhlasit se</i></a></li>
+                <li><a class="navbar-nav" n:href="default">Informace</a></li>
+        </nav>
     {else}
         <nav class="navbar navbar-inverse">
-        <ul class="nav navbar-nav">
-            <li><a class="navbar-nav">Marauder's Map</a></li>
-        <li><a class="navbar-nav" n:href="Sign:Up">Registrace</a></li>
-        <li><a class="navbar-nav" n:href="Sign:in">Prihlasit se</a></li>
-        <li><a class="navbar-nav" n:href="default">Informace</a></li>
-    </nav>
+            <ul class="nav navbar-nav">
+                <li><a class="nav navbar-nav" n:href="Homepage:default"><i class="fa fa-compass" aria-hidden="true" 
+                        style="color: white;">  MARAUDER'S MAP</a></i></li>
+                <li><a class="navbar-nav" n:href="Sign:up"><i class="fa fa-user-plus" aria-hidden="true">  Registrace</i></a></li>
+                <li><a class="navbar-nav" n:href="Sign:in"><i class="fa fa-sign-in" aria-hidden="true">  Prihlasit se</i></a></li>
+                <li><a class="navbar-nav" n:href="Homepage:default">Informace</a></li>
+        </nav>
     {/if}    
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
            
@@ -41,8 +44,10 @@
                 <p  class="panel-body">Copyright &copy; SŠPU Opava, Antonín Dulava 2017</p>
         
         {block scripts}
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
 	{/block}
 </body>
 </html>

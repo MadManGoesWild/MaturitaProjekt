@@ -31,6 +31,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	<link rel="stylesheet" href="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 13 */ ?>/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+        
 	<?php
 		if ($this->getParentName()) return get_defined_vars();
 		$this->renderBlock('head', get_defined_vars());
@@ -41,29 +42,31 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 <?php
 		if ($user->isLoggedIn()) {
 ?>
-    <nav class="navbar navbar-inverse">
-        <ul class="nav navbar-nav">
-            <li><a class="navbar-nav">Marauder's Map</a></li>
-        <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:out")) ?>">Odhlasit</a></li>
-        <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("default")) ?>">Informace</a></li>
-    </nav>
+        <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav">
+                <li><a class="nav navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("default")) ?>"><i class="fa fa-compass" aria-hidden="true" 
+                       style="color: white;">  Marauder's Map</i></a></li>
+                <li><a class="nav navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:out")) ?>"><i class="fa fa-sign-out" aria-hidden="true">  Odhlasit se</i></a></li>
+                <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("default")) ?>">Informace</a></li>
+        </nav>
 <?php
 		}
 		else {
 ?>
         <nav class="navbar navbar-inverse">
-        <ul class="nav navbar-nav">
-            <li><a class="navbar-nav">Marauder's Map</a></li>
-        <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:Up")) ?>">Registrace</a></li>
-        <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:in")) ?>">Prihlasit se</a></li>
-        <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("default")) ?>">Informace</a></li>
-    </nav>
+            <ul class="nav navbar-nav">
+                <li><a class="nav navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>"><i class="fa fa-compass" aria-hidden="true" 
+                        style="color: white;">  MARAUDER'S MAP</a></i></li>
+                <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:up")) ?>"><i class="fa fa-user-plus" aria-hidden="true">  Registrace</i></a></li>
+                <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:in")) ?>"><i class="fa fa-sign-in" aria-hidden="true">  Prihlasit se</i></a></li>
+                <li><a class="navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">Informace</a></li>
+        </nav>
 <?php
 		}
 		$iterations = 0;
 		foreach ($flashes as $flash) {
 			?>	<div<?php if ($_tmp = array_filter(['flash', $flash->type])) echo ' class="', LR\Filters::escapeHtmlAttr(implode(" ", array_unique($_tmp))), '"' ?>><?php
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 36 */ ?></div>
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 39 */ ?></div>
 <?php
 			$iterations++;
 		}
@@ -89,7 +92,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 36');
+		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 39');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -103,8 +106,10 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 
 	function blockScripts($_args)
 	{
-?>	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+?>	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
 <?php
 	}
 
