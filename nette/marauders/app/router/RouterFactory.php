@@ -18,6 +18,7 @@ class RouterFactory
 	{
 		$router = new RouteList;
 		$router[] = new Route('<presenter>/<action>', 'Homepage:default');
+                //$router[] = new Route("127.0.0.1/marauders/www/homepage/send", 'Homepage:receiveData');
 		return $router;
 	}
 }

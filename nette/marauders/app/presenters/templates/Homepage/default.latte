@@ -8,27 +8,79 @@
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 90%;
+        height: 93%;
         margin: 0;
-        padding: 0;
       }
     </style>
 {/block}
 {block content}
 
-<div id="content">
-
-</div>
-
 {if $user->isLoggedIn()}
     <div id="map"></div>
-{/if}  
+{else}
+    <p>Tady bude domovská stránka</p>
+{/if}
+
 {/block}
 
 {block scripts}
-{include parent}        
+{include parent}
 	<script src="functions.js"></script>
         <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4pGibItpUEhjGsEydo_s38kRoelW46a4&callback=initMap">
     </script>
+    <script>
+        {*$(document).ready(()=>{
+        console.log("holý kokot");
+        getLocation();
+      });
+        *}
+          function getLocation(){
+         console.log("Funkce je ok");
+         navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            sendData(pos);
+        }); 
+
+      }
+
+      function getData(){
+          $.ajax({
+                type: "GET", 
+                url: {link getData!},
+                error: function(error){
+                    console.log(error);
+                },
+                success: function(success){
+                    console.log(success);
+            }     
+            });
+    }
+
+      function sendData(position){
+          {*$.post("127.0.0.1/marauders/www/homepage/send",
+        {
+          position: position
+
+        },(result)=>{
+          console.log(result);
+        });*}
+                
+            $.ajax({
+                type: "POST", 
+                url: {link receiveData!},
+                data: position,
+                error: function(error){
+                    console.log(error);
+                },
+                success: function(success){
+                    console.log("ok");
+                    getData();
+            }     
+            });
+        }
+</script>
 {/block}

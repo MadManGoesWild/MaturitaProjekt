@@ -52,9 +52,8 @@ class Template3a8764fd19 extends Latte\Runtime\Template
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 90%;
+        height: 93%;
         margin: 0;
-        padding: 0;
       }
     </style>
 <?php
@@ -66,17 +65,20 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 		extract($_args);
 ?>
 
-<div id="content">
-
-</div>
-
 <?php
 		if ($user->isLoggedIn()) {
 ?>
     <div id="map"></div>
 <?php
 		}
-		
+		else {
+?>
+    <p>Tady bude domovská stránka</p>
+<?php
+		}
+?>
+
+<?php
 	}
 
 
@@ -89,6 +91,48 @@ class Template3a8764fd19 extends Latte\Runtime\Template
         <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4pGibItpUEhjGsEydo_s38kRoelW46a4&callback=initMap">
     </script>
+    <script>
+          function getLocation(){
+         console.log("Funkce je ok");
+         navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            sendData(pos);
+        }); 
+
+      }
+
+      function getData(){
+          $.ajax({
+                type: "GET", 
+                url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("getData!")) ?>,
+                error: function(error){
+                    console.log(error);
+                },
+                success: function(success){
+                    console.log(success);
+            }     
+            });
+    }
+
+      function sendData(position){
+                
+            $.ajax({
+                type: "POST", 
+                url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("receiveData!")) ?>,
+                data: position,
+                error: function(error){
+                    console.log(error);
+                },
+                success: function(success){
+                    console.log("ok");
+                    getData();
+            }     
+            });
+        }
+</script>
 <?php
 	}
 
