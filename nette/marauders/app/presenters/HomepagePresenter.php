@@ -6,13 +6,13 @@ use Nette,
     App\Model;
 
 use Tracy\Debugger;
-
+use Nette\Utils\Json;
 
 class HomepagePresenter extends BasePresenter
 {
     private $database;
     
-    private $position = array();
+    public $location = ['hovno' => 'sracka'];
     
     public function __construct(Nette\Database\Context $database) {
         $this->database = $database;
@@ -23,18 +23,22 @@ class HomepagePresenter extends BasePresenter
 	
 	}
         
-    public function handleReceiveData($position){
-        echo $position;
-        array_push($this->position, $this->getHttpRequest()->getPost());
-        Debugger::dump($this->position);
+    public function handleReceiveData(){
+           // $this->location->position = $this->getHttpRequest()->getRawBody();
+            $this->location['pica'] = $this->getHttpRequest()->getRawBody();
+        //array_push($this->location, $this->getHttpRequest()->getRawBody());
+          /*  $this->payload->message = $this->location['pica'];
+            $this->sendPayload();*/
     }
 
     public function handleGetData(){
-        foreach ($this->position as $position) {
-            echo $position[0];
-            Debugger::dump($this->position);
-        }
-        return $this->position;       
+       // Debugger::dump($this->location);
+        if($this->isAjax()){
+            $this->payload->message = $this->location['pica'];
+            $this->sendPayload();
+           
+         }
+        
     }
         
 }
