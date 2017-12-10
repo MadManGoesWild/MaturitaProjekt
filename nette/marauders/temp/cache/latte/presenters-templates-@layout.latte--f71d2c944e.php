@@ -40,32 +40,34 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 </head>
 
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("default")) ?>"><i class="fa fa-compass" aria-hidden="true" 
+                       style="color: white; font-size: 150%;">  MARAUDER'S MAP</i></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
 <?php
 		if ($user->isLoggedIn()) {
-?>
-        <nav class="navbar navbar-inverse">
-            <ul class="nav navbar-nav">
-                <li><a class="nav navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("default")) ?>"><i class="fa fa-compass" aria-hidden="true" 
-                       style="color: white; font-size: 150%;">  MARAUDER'S MAP</i></a></li>
-                <li><a class="nav navbar-nav" style="font-size: 150%; text-align: right;" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:out")) ?>"><i class="fa fa-sign-out" aria-hidden="true">  Odhlásit se</i></a></li>
-        </nav>
+			?>                    <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:out")) ?>"><i class="fa fa-sign-out" aria-hidden="true">  Odhlásit se</i></a></li>
 <?php
 		}
 		else {
-?>
-        <nav class="navbar navbar-inverse">
-            <ul class="nav navbar-nav">
-                <li><a class="nav navbar-nav" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>"><i class="fa fa-compass" aria-hidden="true" 
-                        style="color: white; font-size: 150%;">  MARAUDER'S MAP</a></i></li>
-                <li><a class="navbar-nav" style="font-size: 150%;" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:up")) ?>"><i class="fa fa-user-plus" aria-hidden="true">  Registrace</i></a></li>
-                <li><a class="navbar-nav" style="font-size: 150%;" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:in")) ?>"><i class="fa fa-sign-in" aria-hidden="true">  Přihlásit se</i></a></li>
-        </nav>
+			?>                <li><a style="font-size: 150%; " href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:up")) ?>"><i class="fa fa-user-plus" aria-hidden="true">  Registrace</i></a></li>
+                <li><a style="font-size: 150%; " href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:in")) ?>"><i class="fa fa-sign-in" aria-hidden="true">  Přihlásit se</i></a></li>
 <?php
 		}
+?>
+            </ul>
+        </div>
+    </nav>
+    
+        
+<?php
 		$iterations = 0;
 		foreach ($flashes as $flash) {
 			?>	<div<?php if ($_tmp = array_filter(['flash', $flash->type])) echo ' class="', LR\Filters::escapeHtmlAttr(implode(" ", array_unique($_tmp))), '"' ?>><?php
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 38 */ ?></div>
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 40 */ ?></div>
 <?php
 			$iterations++;
 		}
@@ -92,7 +94,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 38');
+		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 40');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -111,7 +113,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 50 */ ?>/nette.ajax.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 52 */ ?>/nette.ajax.js"></script>
 <?php
 	}
 
