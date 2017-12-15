@@ -5,8 +5,6 @@ namespace App\Presenters;
 use Nette,
     App\Model;
 
-use App\Model\UserManager;
-
 use Tracy\Debugger;
 use Nette\Utils\Json;
 
@@ -14,17 +12,10 @@ class HomepagePresenter extends BasePresenter
 {
     private $database;
     
-<<<<<<< HEAD
-    private $userManager;
-    
-    private $position = array();
-=======
     public $location = ['hovno' => 'sracka'];
->>>>>>> f3803aa0f511c77450bd7cedc03370e34e5875dc
     
-    public function __construct(Nette\Database\Context $database, UserManager $userManager) {
+    public function __construct(Nette\Database\Context $database) {
         $this->database = $database;
-        $this->userManager = $userManager;
     }
     
     public function renderDefault()
@@ -33,15 +24,6 @@ class HomepagePresenter extends BasePresenter
 	}
         
     public function handleReceiveData(){
-<<<<<<< HEAD
-        $position = explode("&", $this->getHttpRequest()->getRawBody());
-        $this->userManager->setPosition($this->getUser()->getId(), substr($position[1], 4), substr($position[0], 4));
-    }
-
-    public function handleGetData(){
-        $this->payload->message=$this->userManager->getPosition()->latitude;
-        $this->sendPayload();
-=======
            // $this->location->position = $this->getHttpRequest()->getRawBody();
             $this->location['pica'] = $this->getHttpRequest()->getRawBody();
         //array_push($this->location, $this->getHttpRequest()->getRawBody());
@@ -57,7 +39,6 @@ class HomepagePresenter extends BasePresenter
            
          }
         
->>>>>>> f3803aa0f511c77450bd7cedc03370e34e5875dc
     }
         
 }

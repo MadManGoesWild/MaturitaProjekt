@@ -20,13 +20,7 @@ class UserManager implements Nette\Security\IAuthenticator
 		COLUMN_PASSWORD_HASH = 'password',
 		COLUMN_EMAIL = 'email',
 		COLUMN_ROLE = 'role';
-                
-        const
-                TABLE_LOCATION = 'position',
-                COLUMN_USERREF = 'users_id',
-                COLUMN_LATITUDE = 'latitude',
-                COLUMN_LONGITUDE = 'longitude',
-                COLUMN_ISACTIVE = 'isActive';
+
 
 	/** @var Nette\Database\Context */
 	private $database;
@@ -89,22 +83,6 @@ class UserManager implements Nette\Security\IAuthenticator
 			throw new DuplicateNameException;
 		}
 	}
-        
-        public function setPosition($id, $long, $lat){
-            $data = [self::COLUMN_LATITUDE=>$lat,self::COLUMN_LONGITUDE=>$long,self::COLUMN_ISACTIVE => 1];
-            if($this->database->table(self::TABLE_LOCATION)->where(self::COLUMN_USERREF,$id)->count()==0){
-                $data[self::COLUMN_USERREF]=$id; 
-                $this->database->table(self::TABLE_LOCATION)->insert($data);
-                
-            } else {
-                $this->database->table(self::TABLE_LOCATION)->where(self::COLUMN_USERREF,$id)
-                    ->update($data);           
-            }
-        }
-        
-        public function getPosition(){
-            return $this->database->table(self::TABLE_LOCATION)->where(self::COLUMN_ISACTIVE,1)->fetchAll();         
-        }
 }
 
 
