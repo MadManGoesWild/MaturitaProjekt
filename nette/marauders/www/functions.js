@@ -2,7 +2,6 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you. 49.93866, 17.90257
-      setTimeout(getLocation(),4000);
 
       var map, infoWindow;
       function initMap() {
@@ -17,10 +16,13 @@
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
+
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+
+            enabledHighAccuracy: true;
 
             map.setCenter(pos);
 
@@ -29,17 +31,18 @@
               map: map,
               label: "Uživatel",
               title: 'Tady se nachází uživatel!'
-            });          
+            });   
 
             marker.addListener('click', function() {
-              window.alert("Hello.");
+              window.alert("Poloha uživatele:"+" "+position.coords.latitude +", "+position.coords.longitude);
             });
-
           }, 
 
           function() {
             handleLocationError(true, infoWindow, map.getCenter());
-          });
+          },
+          {enabledHighAccuracy: true}
+          );
 
         } else {
           // Browser doesn't support Geolocation
@@ -55,6 +58,8 @@
         infoWindow.open(map);
       }
 
+
+
       /*function getLocation(){
          console.log("Funkce je ok");
          navigator.geolocation.getCurrentPosition(function(position) {
@@ -63,12 +68,12 @@
               lng: position.coords.longitude
             }; 
         sendData(pos);
-      }
+      })
 
       function sendData(position){
         $.post("127.0.0.1/marauders/www/",
         {
-          position: position;
+          position: position
 
         },(result)=>{
           console.log(result);

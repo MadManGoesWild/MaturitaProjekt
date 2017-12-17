@@ -63,9 +63,6 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 	function blockContent($_args)
 	{
 		extract($_args);
-?>
-
-<?php
 		if ($user->isLoggedIn()) {
 ?>
     <div id="map"></div>
@@ -73,7 +70,48 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 		}
 		else {
 ?>
-    <p>Tady bude domovská stránka</p>
+    <div class="Homepage" style="padding-top: 5%">
+        <div class="row text-center">
+          <div class="col-lg-4 col-md-6 mb-8">
+            <div class="card">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 24 */ ?>/images/projekt1a.png" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Připoj se!</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 37 */ ?>/images/projekt2a.png" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Najdi své přátele!</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 50 */ ?>/images/projekt3a.png" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Měj přehled!</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
 <?php
 		}
 ?>
@@ -93,8 +131,8 @@ class Template3a8764fd19 extends Latte\Runtime\Template
     </script>
     <script>
           function getLocation(){
-         console.log("Funkce je ok");
-         navigator.geolocation.getCurrentPosition(function(position) {
+            console.log("Funkce funguje");
+            navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
@@ -117,21 +155,21 @@ class Template3a8764fd19 extends Latte\Runtime\Template
             });
     }
 
-      function sendData(position){
-                
-            $.ajax({
-                type: "POST", 
-                url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("receiveData!")) ?>,
-                data: position,
-                error: function(error){
-                    console.log(error);
-                },
-                success: function(success){
-                    console.log("ok");
-                    getData();
+      function sendData(position){            
+        $.ajax({
+            type: "POST", 
+            url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("receiveData!")) ?>,
+            data: position,
+            error: function(error){
+                console.log(error);
+            },
+            success: function(success){
+                console.log("success");
+                getData();
             }     
             });
         }
+        
 </script>
 <?php
 	}

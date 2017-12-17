@@ -91,7 +91,7 @@ class UserManager implements Nette\Security\IAuthenticator
 	}
         
         public function setPosition($id, $long, $lat){
-            $data = [self::COLUMN_LATITUDE=>$lat,self::COLUMN_LONGITUDE=>$long,self::COLUMN_ISACTIVE => 1];
+            $data = [self::COLUMN_LATITUDE=>$lat,self::COLUMN_LONGITUDE=>$long,self::COLUMN_ISACTIVE => 1,self::COLUMN_USERREF=>$id];
             if($this->database->table(self::TABLE_LOCATION)->where(self::COLUMN_USERREF,$id)->count()==0){
                 $data[self::COLUMN_USERREF]=$id; 
                 $this->database->table(self::TABLE_LOCATION)->insert($data);
@@ -104,6 +104,10 @@ class UserManager implements Nette\Security\IAuthenticator
         
         public function getPosition(){
             return $this->database->table(self::TABLE_LOCATION)->where(self::COLUMN_ISACTIVE,1)->fetchAll();         
+        }
+        
+        public function getUsername(){
+            return $this->database->table(self::TABLE_NAME)->fetch(self::COLUMN_NAME);
         }
 }
 

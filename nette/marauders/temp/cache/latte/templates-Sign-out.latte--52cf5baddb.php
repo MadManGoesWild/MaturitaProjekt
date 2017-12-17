@@ -39,7 +39,7 @@ class Template52cf5baddb extends Latte\Runtime\Template
 		$this->renderBlock('title', get_defined_vars());
 ?>
 
-<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("in")) ?>">Přihlaš se k dalšímu účtu</a></p>
+<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">Zpět na hlavní stránku</a></p>
 <?php
 	}
 

@@ -41,9 +41,80 @@
               lng: position.coords.longitude
             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Poloha uživatele.');
-            infoWindow.open(map);
+            marker = new google.maps.Marker({
+              map: map,
+              draggable: true,
+              icon: ('http://maps.google.com/mapfiles/ms/icons/green-dot.png'),
+              animation: google.maps.Animation.DROP,
+              position: pos
+            });
+
+            marker2 = new google.maps.Marker({
+              map: map,
+              draggable: true,
+              label: "A",
+              animation: google.maps.Animation.DROP,
+              position: pos
+            });
+
+            marker3 = new google.maps.Marker({
+              map: map,
+              draggable: true,
+              icon: ('http://maps.google.com/mapfiles/ms/icons/green-dot.png'),
+              animation: google.maps.Animation.DROP,
+              position: pos
+            });
+
+            marker4 = new google.maps.Marker({
+              map: map,
+              draggable: true,
+              icon: ('http://maps.google.com/mapfiles/ms/icons/green-dot.png'),
+              animation: google.maps.Animation.DROP,
+              position: pos
+            });
+
+            marker5 = new google.maps.Marker({
+              map: map,
+              draggable: true,
+              icon: ('http://maps.google.com/mapfiles/ms/icons/green-dot.png'),
+              animation: google.maps.Animation.DROP,
+              position: pos
+            });
+
+            marker6 = new google.maps.Marker({
+              map: map,
+              draggable: true,
+              icon: ('http://maps.google.com/mapfiles/ms/icons/green-dot.png'),
+              animation: google.maps.Animation.DROP,
+              position: pos
+            });
+
+            marker.addListener('mouseover', function() {
+              infoWindow.setContent('Poloha uživatele RandomUser123.');
+              infoWindow.open(map,marker);
+            });
+
+            marker2.addListener('mouseover', function() {
+              infoWindow.setContent('Poloha uživatele Administrator.');
+              infoWindow.open(map,marker2);
+            });
+
+            marker3.addListener('mouseover', function() {
+              infoWindow.setContent('Poloha uživatele 420Killer.');
+              infoWindow.open(map,marker3);
+            });
+
+            marker4.addListener('mouseover', function() {
+              infoWindow.setContent('Poloha uživatele DobryGraczPL.');
+              infoWindow.open(map,marker4);
+            });
+
+            marker5.addListener('mouseover', function() {
+              infoWindow.setContent('Poloha uživatele Samec.');
+              infoWindow.open(map,marker5);
+            });
+
+
             map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());

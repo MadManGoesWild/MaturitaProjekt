@@ -2,16 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/C:/xampp/htdocs/marauders/app/presenters/SignPresenter.php</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/HomepagePresenter.php</file>
             <file>file:/C:/xampp/htdocs/marauders/app/model/UserManager.php</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/@layout.latte</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/Homepage/default.latte</file>
         </group>
-=======
-        <group/>
->>>>>>> f3803aa0f511c77450bd7cedc03370e34e5875dc
     </open-files>
 </project-private>
