@@ -33,23 +33,133 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 			'Tracy\ILogger' => [1 => ['tracy.logger']],
 			'Tracy\BlueScreen' => [1 => ['tracy.blueScreen']],
 			'Tracy\Bar' => [1 => ['tracy.bar']],
-			'App\Forms\FormFactory' => [1 => ['24_App_Forms_FormFactory']],
-			'App\Forms\SignInFormFactory' => [1 => ['25_App_Forms_SignInFormFactory']],
-			'App\Forms\SignUpFormFactory' => [1 => ['26_App_Forms_SignUpFormFactory']],
-			'Nette\Security\IAuthenticator' => [1 => ['27_App_Model_UserManager']],
-			'App\Model\UserManager' => [1 => ['27_App_Model_UserManager']],
-			'App\Presenters\BasePresenter' => [1 => ['application.1', 'application.3', 'application.4']],
-			'Nette\Application\UI\Presenter' => [['application.1', 'application.3', 'application.4']],
-			'Nette\Application\UI\Control' => [['application.1', 'application.3', 'application.4']],
-			'Nette\Application\UI\Component' => [['application.1', 'application.3', 'application.4']],
-			'Nette\ComponentModel\Container' => [['application.1', 'application.3', 'application.4']],
-			'Nette\ComponentModel\Component' => [['application.1', 'application.3', 'application.4']],
-			'Nette\Application\UI\IRenderable' => [['application.1', 'application.3', 'application.4']],
-			'Nette\ComponentModel\IContainer' => [['application.1', 'application.3', 'application.4']],
-			'Nette\ComponentModel\IComponent' => [['application.1', 'application.3', 'application.4']],
-			'Nette\Application\UI\ISignalReceiver' => [['application.1', 'application.3', 'application.4']],
-			'Nette\Application\UI\IStatePersistent' => [['application.1', 'application.3', 'application.4']],
-			'ArrayAccess' => [['application.1', 'application.3', 'application.4']],
+			'Nette\Object' => [
+				1 => [
+					'facebook.config',
+					'facebook.session',
+					'facebook.panel',
+					'facebook.client',
+				],
+			],
+			'Kdyby\Facebook\Configuration' => [1 => ['facebook.config']],
+			'Kdyby\Facebook\SessionStorage' => [1 => ['facebook.session']],
+			'Kdyby\Facebook\ApiClient' => [1 => ['facebook.apiClient']],
+			'Tracy\IBarPanel' => [1 => ['facebook.panel']],
+			'Kdyby\Facebook\Diagnostics\Panel' => [1 => ['facebook.panel']],
+			'Kdyby\Facebook\Facebook' => [1 => ['facebook.client']],
+			'App\Forms\FormFactory' => [1 => ['29_App_Forms_FormFactory']],
+			'App\Forms\SignInFormFactory' => [1 => ['30_App_Forms_SignInFormFactory']],
+			'App\Forms\SignUpFormFactory' => [1 => ['31_App_Forms_SignUpFormFactory']],
+			'Nette\Security\IAuthenticator' => [1 => ['32_App_Model_UserManager']],
+			'App\Model\UserManager' => [1 => ['32_App_Model_UserManager']],
+			'App\Presenters\BasePresenter' => [
+				1 => [
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\Application\UI\Presenter' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\Application\UI\Control' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\Application\UI\Component' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\ComponentModel\Container' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\ComponentModel\Component' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\Application\UI\IRenderable' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\ComponentModel\IContainer' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\ComponentModel\IComponent' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\Application\UI\ISignalReceiver' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'Nette\Application\UI\IStatePersistent' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
+			'ArrayAccess' => [
+				[
+					'application.1',
+					'application.3',
+					'application.4',
+					'application.5',
+					'application.6',
+				],
+			],
 			'Nette\Application\IPresenter' => [
 				[
 					'application.1',
@@ -58,27 +168,33 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 					'application.4',
 					'application.5',
 					'application.6',
+					'application.7',
+					'application.8',
 				],
 			],
 			'App\Presenters\Error4xxPresenter' => [1 => ['application.1']],
 			'App\Presenters\ErrorPresenter' => [1 => ['application.2']],
 			'App\Presenters\HomepagePresenter' => [1 => ['application.3']],
-			'App\Presenters\SignPresenter' => [1 => ['application.4']],
-			'NetteModule\ErrorPresenter' => [1 => ['application.5']],
-			'NetteModule\MicroPresenter' => [1 => ['application.6']],
+			'App\Presenters\LoginPresenter' => [1 => ['application.4']],
+			'App\Presenters\SignPresenter' => [1 => ['application.5']],
+			'App\Presenters\UsersPresenter' => [1 => ['application.6']],
+			'NetteModule\ErrorPresenter' => [1 => ['application.7']],
+			'NetteModule\MicroPresenter' => [1 => ['application.8']],
 			'Nette\DI\Container' => [1 => ['container']],
 		],
 		'services' => [
-			'24_App_Forms_FormFactory' => 'App\Forms\FormFactory',
-			'25_App_Forms_SignInFormFactory' => 'App\Forms\SignInFormFactory',
-			'26_App_Forms_SignUpFormFactory' => 'App\Forms\SignUpFormFactory',
-			'27_App_Model_UserManager' => 'App\Model\UserManager',
+			'29_App_Forms_FormFactory' => 'App\Forms\FormFactory',
+			'30_App_Forms_SignInFormFactory' => 'App\Forms\SignInFormFactory',
+			'31_App_Forms_SignUpFormFactory' => 'App\Forms\SignUpFormFactory',
+			'32_App_Model_UserManager' => 'App\Model\UserManager',
 			'application.1' => 'App\Presenters\Error4xxPresenter',
 			'application.2' => 'App\Presenters\ErrorPresenter',
 			'application.3' => 'App\Presenters\HomepagePresenter',
-			'application.4' => 'App\Presenters\SignPresenter',
-			'application.5' => 'NetteModule\ErrorPresenter',
-			'application.6' => 'NetteModule\MicroPresenter',
+			'application.4' => 'App\Presenters\LoginPresenter',
+			'application.5' => 'App\Presenters\SignPresenter',
+			'application.6' => 'App\Presenters\UsersPresenter',
+			'application.7' => 'NetteModule\ErrorPresenter',
+			'application.8' => 'NetteModule\MicroPresenter',
 			'application.application' => 'Nette\Application\Application',
 			'application.linkGenerator' => 'Nette\Application\LinkGenerator',
 			'application.presenterFactory' => 'Nette\Application\IPresenterFactory',
@@ -89,6 +205,11 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 			'database.default.context' => 'Nette\Database\Context',
 			'database.default.conventions' => 'Nette\Database\Conventions\DiscoveredConventions',
 			'database.default.structure' => 'Nette\Database\Structure',
+			'facebook.apiClient' => 'Kdyby\Facebook\ApiClient',
+			'facebook.client' => 'Kdyby\Facebook\Facebook',
+			'facebook.config' => 'Kdyby\Facebook\Configuration',
+			'facebook.panel' => 'Kdyby\Facebook\Diagnostics\Panel',
+			'facebook.session' => 'Kdyby\Facebook\SessionStorage',
 			'http.context' => 'Nette\Http\Context',
 			'http.request' => 'Nette\Http\Request',
 			'http.requestFactory' => 'Nette\Http\RequestFactory',
@@ -112,14 +233,23 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 				'application.4' => true,
 				'application.5' => true,
 				'application.6' => true,
+				'application.7' => true,
+				'application.8' => true,
+				'facebook.apiClient' => false,
+				'facebook.client' => false,
+				'facebook.config' => false,
+				'facebook.panel' => false,
+				'facebook.session' => false,
 			],
 			'nette.presenter' => [
 				'application.1' => 'App\Presenters\Error4xxPresenter',
 				'application.2' => 'App\Presenters\ErrorPresenter',
 				'application.3' => 'App\Presenters\HomepagePresenter',
-				'application.4' => 'App\Presenters\SignPresenter',
-				'application.5' => 'NetteModule\ErrorPresenter',
-				'application.6' => 'NetteModule\MicroPresenter',
+				'application.4' => 'App\Presenters\LoginPresenter',
+				'application.5' => 'App\Presenters\SignPresenter',
+				'application.6' => 'App\Presenters\UsersPresenter',
+				'application.7' => 'NetteModule\ErrorPresenter',
+				'application.8' => 'NetteModule\MicroPresenter',
 			],
 		],
 		'aliases' => [
@@ -159,30 +289,30 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 	}
 
 
-	public function createService__24_App_Forms_FormFactory(): App\Forms\FormFactory
+	public function createService__29_App_Forms_FormFactory(): App\Forms\FormFactory
 	{
 		$service = new App\Forms\FormFactory;
 		return $service;
 	}
 
 
-	public function createService__25_App_Forms_SignInFormFactory(): App\Forms\SignInFormFactory
+	public function createService__30_App_Forms_SignInFormFactory(): App\Forms\SignInFormFactory
 	{
-		$service = new App\Forms\SignInFormFactory($this->getService('24_App_Forms_FormFactory'),
+		$service = new App\Forms\SignInFormFactory($this->getService('29_App_Forms_FormFactory'),
 			$this->getService('security.user'));
 		return $service;
 	}
 
 
-	public function createService__26_App_Forms_SignUpFormFactory(): App\Forms\SignUpFormFactory
+	public function createService__31_App_Forms_SignUpFormFactory(): App\Forms\SignUpFormFactory
 	{
-		$service = new App\Forms\SignUpFormFactory($this->getService('24_App_Forms_FormFactory'),
-			$this->getService('27_App_Model_UserManager'));
+		$service = new App\Forms\SignUpFormFactory($this->getService('29_App_Forms_FormFactory'),
+			$this->getService('32_App_Model_UserManager'));
 		return $service;
 	}
 
 
-	public function createService__27_App_Model_UserManager(): App\Model\UserManager
+	public function createService__32_App_Model_UserManager(): App\Model\UserManager
 	{
 		$service = new App\Model\UserManager($this->getService('database.default.context'));
 		return $service;
@@ -211,7 +341,7 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 	public function createServiceApplication__3(): App\Presenters\HomepagePresenter
 	{
 		$service = new App\Presenters\HomepagePresenter($this->getService('database.default.context'),
-			$this->getService('27_App_Model_UserManager'));
+			$this->getService('32_App_Model_UserManager'));
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
@@ -221,10 +351,9 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__4(): App\Presenters\SignPresenter
+	public function createServiceApplication__4(): App\Presenters\LoginPresenter
 	{
-		$service = new App\Presenters\SignPresenter($this->getService('25_App_Forms_SignInFormFactory'),
-			$this->getService('26_App_Forms_SignUpFormFactory'));
+		$service = new App\Presenters\LoginPresenter($this->getService('facebook.client'), $this->getService('32_App_Model_UserManager'));
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
@@ -234,14 +363,39 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__5(): NetteModule\ErrorPresenter
+	public function createServiceApplication__5(): App\Presenters\SignPresenter
+	{
+		$service = new App\Presenters\SignPresenter($this->getService('30_App_Forms_SignInFormFactory'),
+			$this->getService('31_App_Forms_SignUpFormFactory'));
+		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
+			$this->getService('routing.router'), $this->getService('http.request'),
+			$this->getService('http.response'), $this->getService('session.session'),
+			$this->getService('security.user'), $this->getService('latte.templateFactory'));
+		$service->invalidLinkMode = 5;
+		return $service;
+	}
+
+
+	public function createServiceApplication__6(): App\Presenters\UsersPresenter
+	{
+		$service = new App\Presenters\UsersPresenter($this->getService('32_App_Model_UserManager'));
+		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
+			$this->getService('routing.router'), $this->getService('http.request'),
+			$this->getService('http.response'), $this->getService('session.session'),
+			$this->getService('security.user'), $this->getService('latte.templateFactory'));
+		$service->invalidLinkMode = 5;
+		return $service;
+	}
+
+
+	public function createServiceApplication__7(): NetteModule\ErrorPresenter
 	{
 		$service = new NetteModule\ErrorPresenter($this->getService('tracy.logger'));
 		return $service;
 	}
 
 
-	public function createServiceApplication__6(): NetteModule\MicroPresenter
+	public function createServiceApplication__8(): NetteModule\MicroPresenter
 	{
 		$service = new NetteModule\MicroPresenter($this, $this->getService('http.request'),
 			$this->getService('routing.router'));
@@ -334,6 +488,58 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 	}
 
 
+	public function createServiceFacebook__apiClient(): Kdyby\Facebook\ApiClient
+	{
+		$service = new Kdyby\Facebook\Api\CurlClient;
+		$service->curlOptions = [
+			78 => 10,
+			13 => 60,
+			10023 => ['User-Agent: kdyby-facebook-1.1'],
+			2 => true,
+			42 => true,
+			19913 => true,
+		];;
+		$this->getService('facebook.panel')->register($service);
+		return $service;
+	}
+
+
+	public function createServiceFacebook__client(): Kdyby\Facebook\Facebook
+	{
+		$service = new Kdyby\Facebook\Facebook($this->getService('facebook.config'), $this->getService('facebook.session'),
+			$this->getService('facebook.apiClient'), $this->getService('http.request'),
+			$this->getService('http.response'));
+		return $service;
+	}
+
+
+	public function createServiceFacebook__config(): Kdyby\Facebook\Configuration
+	{
+		$service = new Kdyby\Facebook\Configuration('1133172913452464', '89f9cee28aef57141c73b13ee83861f9');
+		$service->verifyApiCalls = true;
+		$service->fileUploadSupport = false;
+		$service->trustForwarded = false;
+		$service->permissions = ['public_profile', 'email'];
+		$service->canvasBaseUrl = null;
+		$service->graphVersion = 'v2.3';
+		return $service;
+	}
+
+
+	public function createServiceFacebook__panel(): Kdyby\Facebook\Diagnostics\Panel
+	{
+		$service = new Kdyby\Facebook\Diagnostics\Panel;
+		return $service;
+	}
+
+
+	public function createServiceFacebook__session(): Kdyby\Facebook\SessionStorage
+	{
+		$service = new Kdyby\Facebook\SessionStorage($this->getService('session.session'), $this->getService('facebook.config'));
+		return $service;
+	}
+
+
 	public function createServiceHttp__context(): Nette\Http\Context
 	{
 		$service = new Nette\Http\Context($this->getService('http.request'), $this->getService('http.response'));
@@ -414,8 +620,9 @@ class Container_fdb50d5d93 extends Nette\DI\Container
 
 	public function createServiceSecurity__user(): Nette\Security\User
 	{
-		$service = new Nette\Security\User($this->getService('security.userStorage'), $this->getService('27_App_Model_UserManager'));
+		$service = new Nette\Security\User($this->getService('security.userStorage'), $this->getService('32_App_Model_UserManager'));
 		$this->getService('tracy.bar')->addPanel(new Nette\Bridges\SecurityTracy\UserPanel($service));
+		$sl = $this; $service->onLoggedOut[] = function () use ($sl) { $sl->getService('facebook.session')->clearAll(); };
 		return $service;
 	}
 

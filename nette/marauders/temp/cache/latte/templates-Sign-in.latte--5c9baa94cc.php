@@ -45,6 +45,8 @@ class Template5c9baa94cc extends Latte\Runtime\Template
 		$_tmp->render();
 ?>
 
+<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("fbLogin-open!")) ?>">Login using facebook</a></p>
+
 <p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("up")) ?>">Ještě nemáš účet? Zaregistruj se!</a></p>
 <?php
 	}

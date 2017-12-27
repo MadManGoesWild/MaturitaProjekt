@@ -84,7 +84,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
               </div>
             </div>
           </div>
-
+             
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 37 */ ?>/images/projekt2a.png" alt="">

@@ -29,3 +29,12 @@ services:
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
 	router: App\RouterFactory::createRouter
+
+extensions:
+	facebook: Kdyby\Facebook\DI\FacebookExtension
+
+facebook:
+	appId: "1133172913452464"
+	appSecret: "89f9cee28aef57141c73b13ee83861f9"
+	permissions: [public_profile, email] # theese are the default read permissions, you might need to
+	graphVersion: v2.3

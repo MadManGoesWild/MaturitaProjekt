@@ -27,6 +27,7 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 {if $user->isLoggedIn()}
+                    <li><a n:href="Users:users" style="font-size: 150%"><i class="fa fa-address-card" aria-hidden="true">  Uživatelé</i></a></li>
                     <li><a n:href="Sign:out" style="font-size: 150%"><i class="fa fa-sign-out" aria-hidden="true">  Odhlásit se</i></a></li>
                 {else}
                 <li><a  n:href="Sign:up" style="font-size: 150%; "><i class="fa fa-user-plus" aria-hidden="true">  Registrace</i></a></li>

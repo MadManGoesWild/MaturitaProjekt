@@ -26,19 +26,20 @@ class HomepagePresenter extends BasePresenter
         $this->userManager = $userManager;
     }
     
-    public function renderDefault()
-	{
-	
-	}
-        
     public function handleReceiveData(){
         $position = explode("&", $this->getHttpRequest()->getRawBody());
         $this->userManager->setPosition($this->getUser()->getId(), substr($position[1], 4), substr($position[0], 4));
     }
 
     public function handleGetData(){
-        $this->payload->message=$this->userManager->getPosition();
-        $this->sendPayload();
+        $ziskejPozici = ($this->userManager->getPosition());
+        //Debugger::dump($ziskejPozici[0]);
+        /*foreach ($ziskejPozici as $pozice){
+            
+        }*/
+        $ziskejPozici = $ziskejPozici["8"];
+        //$this->payload->message=$ziskejPozici->latitude;
+        $this->sendJson($ziskejPozici);
 
            // $this->location->position = $this->getHttpRequest()->getRawBody();
            // $this->location['Něco je špatně'] = $this->getHttpRequest()->getRawBody();

@@ -106,9 +106,11 @@ class UserManager implements Nette\Security\IAuthenticator
             return $this->database->table(self::TABLE_LOCATION)->where(self::COLUMN_ISACTIVE,1)->fetchAll();         
         }
         
-        public function getUsername(){
-            return $this->database->table(self::TABLE_NAME)->fetch(self::COLUMN_NAME);
-        }
+        /*public function getAll($column = 'nazev'){
+            return $this->database->table(self::TABLE_NAME)->order($column)->fetchAll();
+            
+        }*/
+        
 }
 
 
