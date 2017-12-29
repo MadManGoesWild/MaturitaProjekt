@@ -89,14 +89,24 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 <?php
 		$this->renderBlock('content', $this->params, 'html');
 ?>
-        
-        <footer class="panel ">
-            <p  class="panel-footer">Copyright &copy; SŠPU Opava, Antonín Dulava 2017</p>
+        <footer> 
+            <div class="footer-bottom">
+                <div class="container">
+                    <p id="copyright"> Copyright © Antonín Dulava 2017 </p>
+                </div>
+            </div>
         </footer>
-            
+
+        <style>          
+        .footer-bottom {
+            background: #E3E3E3;
+            border-top: 1px solid #DDDDDD;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        </style>
         
-
-
         
 <?php
 		$this->renderBlock('scripts', get_defined_vars());
@@ -130,7 +140,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 67 */ ?>/nette.ajax.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 77 */ ?>/nette.ajax.js"></script>
         <script>
         function changeTheme(){
             console.log("konozola");

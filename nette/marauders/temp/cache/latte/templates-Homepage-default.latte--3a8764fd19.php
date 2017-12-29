@@ -174,11 +174,15 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 
         function getData(){
           $.ajax({
-                type: "GET", 
+                // Pomocí požadavku GET server získá pozici z databáze
+                type: "GET",
+                // Požadavek se posílá na adresu getData!
                 url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("getData!")) ?>,
+                // V případě erroru se vypíše chybová hláška do konzole
                 error: function(error){
                     console.log(error);
                 },
+                // Když se podaří získat pozici z databáze vypíše se do konzole hláška        
                 success: function(success){
                     console.log("Ze serveru",success);
                     drawMarkers(success);
@@ -188,14 +192,19 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 
         function sendData(position){            
             $.ajax({
+                // Požadavek POST odešle pozici uživatele na server a uloží do databáze
                 type: "POST", 
+                // Požadavek se posílá na adresu receiveData!
                 url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("receiveData!")) ?>,
+                // Jako odeslané data odesílá proměnnou position
                 data: position,
+                // V případě chyby se odešle chybová hláška do konzole        
                 error: function(error){
                     console.log(error);
                 },
+                // Při úspěchu se vypíše do konzole hláška         
                 success: function(success){
-                    console.log("success");
+                    console.log("Od uživatele");
                     getData();
                 }     
             });

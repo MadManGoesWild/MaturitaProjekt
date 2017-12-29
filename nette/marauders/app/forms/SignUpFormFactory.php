@@ -33,13 +33,13 @@ class SignUpFormFactory
 	public function create(callable $onSuccess)
 	{
 		$form = $this->factory->create();
-		$form->addText('username', 'Vyber si uživatelské jméno:')
+		$form->addText('username', 'Uživatelské jméno:')
 			->setRequired('Vyber si prosím své uživatelské jméno.');
 
-		$form->addEmail('email', 'Zadej svůj email:')
+		$form->addEmail('email', 'Email:')
 			->setRequired('Zadej prosím svůj email.');
 
-		$form->addPassword('password', 'Zadej heslo:')
+		$form->addPassword('password', 'Heslo:')
 			->setOption('description', sprintf('at least %d characters', self::PASSWORD_MIN_LENGTH))
 			->setRequired('Prosím zadej své heslo')
 			->addRule($form::MIN_LENGTH, null, self::PASSWORD_MIN_LENGTH);

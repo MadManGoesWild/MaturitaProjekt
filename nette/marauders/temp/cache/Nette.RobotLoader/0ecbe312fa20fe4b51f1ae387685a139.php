@@ -17,21 +17,6 @@ return array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\forms\\SignInFormFactory.php',
       'time' => 1513509097,
     ),
-    'App\\Forms\\SignUpFormFactory' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\forms\\SignUpFormFactory.php',
-      'time' => 1513509097,
-    ),
-    'App\\Model\\UserManager' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1514387325,
-    ),
-    'App\\Model\\DuplicateNameException' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1514387325,
-    ),
     'App\\Presenters\\BasePresenter' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\BasePresenter.php',
@@ -62,15 +47,30 @@ return array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\SignPresenter.php',
       'time' => 1513509097,
     ),
-    'App\\Presenters\\UsersPresenter' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\UsersPresenter.php',
-      'time' => 1514387810,
-    ),
     'App\\RouterFactory' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\router\\RouterFactory.php',
       'time' => 1513509097,
+    ),
+    'App\\Forms\\SignUpFormFactory' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\forms\\SignUpFormFactory.php',
+      'time' => 1514559497,
+    ),
+    'App\\Model\\UserManager' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
+      'time' => 1514568331,
+    ),
+    'App\\Model\\DuplicateNameException' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
+      'time' => 1514568331,
+    ),
+    'App\\Presenters\\UsersPresenter' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\UsersPresenter.php',
+      'time' => 1514568026,
     ),
   ),
   1 => 

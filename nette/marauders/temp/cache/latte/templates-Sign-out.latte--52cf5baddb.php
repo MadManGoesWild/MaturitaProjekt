@@ -36,18 +36,60 @@ class Template52cf5baddb extends Latte\Runtime\Template
 	function blockContent($_args)
 	{
 		extract($_args);
+?>
+<div class="container-fluid">
+    <div class="SignOutCard">
+        <div class="outset">
+<?php
 		$this->renderBlock('title', get_defined_vars());
 ?>
+              
+                <p id="zpet"><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">Zpět na hlavní stránku</a></p>
+        </div>
+    </div>
+</div>
 
-<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">Zpět na hlavní stránku</a></p>
-<?php
+<style>
+    #rcorners1 {
+        border-radius: 25px;
+        background: #73AD21;
+        margin-top: 1%;
+        background-color: #808080;
+}
+    
+    .outset{
+            border-radius: 20px;
+            margin-right: 35%;
+            margin-left: 35%;
+            background-color: #d3d3d3
+    }
+    
+    .SignOutCard{
+        margin-top:5%
+            
+    }
+    
+    h1 {
+        text-align: center;
+        font-family: monospace;
+        color: #FFFAF0
+    }
+    
+    
+    #zpet {
+        margin-left: 3%;
+        font-size: 160%;
+        text-align: center;
+    }
+    
+</style><?php
 	}
 
 
 	function blockTitle($_args)
 	{
 		extract($_args);
-?><h1>Úspěšně jsi byl odhlášen</h1>
+?>            <h1 id="rcorners1">Úspěšně jsi byl odhlášen</h1>
 <?php
 	}
 
