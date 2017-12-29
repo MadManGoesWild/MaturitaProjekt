@@ -22,6 +22,13 @@
               lng: position.coords.longitude
             };
 
+            var contentString = "Poloha uživatele:"+" "+position.coords.latitude +", "+position.coords.longitude;
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+
             enabledHighAccuracy: true;
 
             map.setCenter(pos);
@@ -29,19 +36,18 @@
             var marker = new google.maps.Marker({
               position: pos,
               map: map,
-              label: "Uživatel",
+              label: "Uži" + position.users_id,
               title: 'Tady se nachází uživatel!'
             });   
 
-            marker.addListener('click', function() {
-              window.alert("Poloha uživatele:"+" "+position.coords.latitude +", "+position.coords.longitude);
+            marker.addListener('mouseover', function() {
+              infoWindow.open(map, marker);
             });
           }, 
 
           function() {
             handleLocationError(true, infoWindow, map.getCenter());
           },
-          {enabledHighAccuracy: true}
           );
 
         } else {
@@ -57,6 +63,8 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+
 
 
 
@@ -80,4 +88,3 @@
         });
 
       }*/
-

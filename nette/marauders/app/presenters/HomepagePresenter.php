@@ -33,13 +33,12 @@ class HomepagePresenter extends BasePresenter
 
     public function handleGetData(){
         $ziskejPozici = ($this->userManager->getPosition());
-        //Debugger::dump($ziskejPozici[0]);
-        /*foreach ($ziskejPozici as $pozice){
-            
-        }*/
-        $ziskejPozici = $ziskejPozici["8"];
-        //$this->payload->message=$ziskejPozici->latitude;
-        $this->sendJson($ziskejPozici);
+        $arr = [];
+        foreach($ziskejPozici as $pozice){
+           array_push($arr, $pozice->toArray());           
+        }           
+        $this->payload->message = $arr;
+        $this->sendPayload();
 
            // $this->location->position = $this->getHttpRequest()->getRawBody();
            // $this->location['Něco je špatně'] = $this->getHttpRequest()->getRawBody();

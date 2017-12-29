@@ -1,7 +1,26 @@
 {block content}
-<h1> Ahoj </h1>
 <div id="content" class="container">
-    <h2>Seznam zbraní</h2>
-        <ul>
-            <li n:foreach="$userove as $users">{$users->username}</li>
-        </ul>
+    <h2>Uživatelé</h2>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th><a n:href="id">ID</a></th>
+                <th><a n:href="username">Jméno uživatele</a></th>
+                <th><a n:href="email">Email</a></th>
+                <th><a n:href="role">Práva</a></th>           
+            </tr>            
+        </thead>
+        <tbody>
+            <tr n:foreach="$userove as $users">
+                <td>{$users->id}</td>
+                <td>{$users->username}</td>
+                <td>{$users->email}</td>
+                <td>{$users->role}</td>
+                <td>
+                    <div style="text-align: center">
+                    <a n:href="delete $users->id"><button class="btn btn-danger">Smazat</button></a>
+                    </div>
+                    </td>                    
+            </tr>
+        </tbody>     
+    </table>

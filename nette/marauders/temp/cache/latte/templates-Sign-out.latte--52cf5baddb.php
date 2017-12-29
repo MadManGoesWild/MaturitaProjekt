@@ -1,16 +1,18 @@
 <?php
-// source: C:\xampp\htdocs\marauders\app\presenters/templates/Users/users.latte
+// source: C:\xampp\htdocs\marauders\app\presenters/templates/Sign/out.latte
 
 use Latte\Runtime as LR;
 
-class Templateefb5867999 extends Latte\Runtime\Template
+class Template52cf5baddb extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'content' => 'blockContent',
+		'title' => 'blockTitle',
 	];
 
 	public $blockTypes = [
 		'content' => 'html',
+		'title' => 'html',
 	];
 
 
@@ -26,7 +28,6 @@ class Templateefb5867999 extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['users'])) trigger_error('Variable $users overwritten in foreach on line 6');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -35,20 +36,18 @@ class Templateefb5867999 extends Latte\Runtime\Template
 	function blockContent($_args)
 	{
 		extract($_args);
+		$this->renderBlock('title', get_defined_vars());
 ?>
-<h1> Ahoj </h1>
-<div id="content" class="container">
-    <h2>Seznam zbraní</h2>
-        <ul>
+
+<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">Zpět na hlavní stránku</a></p>
 <?php
-		$iterations = 0;
-		foreach ($userove as $users) {
-			?>            <li><?php echo LR\Filters::escapeHtmlText($users->username) /* line 6 */ ?></li>
-<?php
-			$iterations++;
-		}
-?>
-        </ul>
+	}
+
+
+	function blockTitle($_args)
+	{
+		extract($_args);
+?><h1>Úspěšně jsi byl odhlášen</h1>
 <?php
 	}
 

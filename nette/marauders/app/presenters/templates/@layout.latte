@@ -22,12 +22,22 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" n:href="default"><i class="fa fa-compass" aria-hidden="true" 
+                <a class="navbar-brand" n:href="Homepage:default"><i class="fa fa-compass" aria-hidden="true" 
                        style="color: white; font-size: 150%;">  MARAUDER'S MAP</i></a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 {if $user->isLoggedIn()}
+                    {if in_array('administrator',$user->getRoles()) || in_array('user',$user->getRoles())}
                     <li><a n:href="Users:users" style="font-size: 150%"><i class="fa fa-address-card" aria-hidden="true">  Uživatelé</i></a></li>
+                    {/if}
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 150%">
+                        <i class="fa fa-map" aria-hidden="true"> Motivy</i><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="changeTheme()">Night</a></li>
+                                <li><a href="#">Silver</a></li>
+                                <li><a href="#">Retro</a></li>
+                            </ul>
+                        </li>
                     <li><a n:href="Sign:out" style="font-size: 150%"><i class="fa fa-sign-out" aria-hidden="true">  Odhlásit se</i></a></li>
                 {else}
                 <li><a  n:href="Sign:up" style="font-size: 150%; "><i class="fa fa-user-plus" aria-hidden="true">  Registrace</i></a></li>
@@ -46,11 +56,20 @@
             <p  class="panel-footer">Copyright &copy; SŠPU Opava, Antonín Dulava 2017</p>
         </footer>
             
+        
+
+
+        
         {block scripts}
 	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="{$basePath}/nette.ajax.js"></script>
+        <script>
+        function changeTheme(){
+            console.log("konozola");
+        }
+        </script>
 	{/block}
 </body>
 </html>

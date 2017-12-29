@@ -77,10 +77,10 @@ class Template3a8764fd19 extends Latte\Runtime\Template
               <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 24 */ ?>/images/projekt1a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Připoj se!</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                <p class="card-text">Neváhej a připoj se do nově vznikající webové aplikace. Vše je zdarma.</p>
               </div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
+                <a class="btn btn-primary" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:up")) ?>">Registruj se!</a>
               </div>
             </div>
           </div>
@@ -90,10 +90,10 @@ class Template3a8764fd19 extends Latte\Runtime\Template
               <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 37 */ ?>/images/projekt2a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Najdi své přátele!</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+                <p class="card-text">Pozvi své přátele do této webové aplikace a zjisti, kde se právě nachází. Zjednodušte si společné setkání.</p>
               </div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
+                <a class="btn btn-primary" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:up")) ?>">Registruj se!</a>
               </div>
             </div>
           </div>
@@ -103,10 +103,10 @@ class Template3a8764fd19 extends Latte\Runtime\Template
               <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 50 */ ?>/images/projekt3a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Měj přehled!</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                <p class="card-text">Přehledná mapa pomáhá k jednoduchosti, vše na jednom místě.</p>
               </div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
+                <a class="btn btn-primary" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:up")) ?>">Registruj se!</a>
               </div>
             </div>
           </div>
@@ -130,19 +130,49 @@ class Template3a8764fd19 extends Latte\Runtime\Template
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4pGibItpUEhjGsEydo_s38kRoelW46a4&callback=initMap">
     </script>
     <script>
-          function getLocation(){
+        setInterval(getLocation, 5000);
+        
+        var markersArr = [];
+        function clearOverlays(){
+            for(var i = 0; i < markersArr.length; i++){
+                markersArr[i].setMap(null);
+            }
+        markersArr.length = 0;
+        }
+        
+        function getLocation(){
             console.log("Funkce funguje");
             navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
+                var pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                    };
+                sendData(pos);
+            }); 
+        }
+
+        function drawMarkers(data){
+            let pos;
+            let marker;
+            console.log("Data",data);
+            clearOverlays();
+            for(let position of data.message){
+                pos = {
+                    lat: Number(position.latitude),
+                    lng: Number(position.longitude)
             };
-            sendData(pos);
-        }); 
+            /*marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                label: "Uživatel",
+                title: 'Tady se nachází uživatel!'
+            });
+            markersArr.push(marker);*/
+        }
+    
+    }
 
-      }
-
-      function getData(){
+        function getData(){
           $.ajax({
                 type: "GET", 
                 url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("getData!")) ?>,
@@ -150,23 +180,24 @@ class Template3a8764fd19 extends Latte\Runtime\Template
                     console.log(error);
                 },
                 success: function(success){
-                    console.log(success);
-            }     
+                    console.log("Ze serveru",success);
+                    drawMarkers(success);
+                }     
             });
-    }
+        }
 
-      function sendData(position){            
-        $.ajax({
-            type: "POST", 
-            url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("receiveData!")) ?>,
-            data: position,
-            error: function(error){
-                console.log(error);
-            },
-            success: function(success){
-                console.log("success");
-                getData();
-            }     
+        function sendData(position){            
+            $.ajax({
+                type: "POST", 
+                url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("receiveData!")) ?>,
+                data: position,
+                error: function(error){
+                    console.log(error);
+                },
+                success: function(success){
+                    console.log("success");
+                    getData();
+                }     
             });
         }
         

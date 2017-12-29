@@ -22,6 +22,16 @@ return array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\forms\\SignUpFormFactory.php',
       'time' => 1513509097,
     ),
+    'App\\Model\\UserManager' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
+      'time' => 1514387325,
+    ),
+    'App\\Model\\DuplicateNameException' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
+      'time' => 1514387325,
+    ),
     'App\\Presenters\\BasePresenter' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\BasePresenter.php',
@@ -37,46 +47,34 @@ return array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\ErrorPresenter.php',
       'time' => 1513509097,
     ),
+    'App\\Presenters\\HomepagePresenter' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\HomepagePresenter.php',
+      'time' => 1514372039,
+    ),
     'App\\Presenters\\LoginPresenter' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\LoginPresenter.php',
-      'time' => 1514366904,
+      'time' => 1514396292,
     ),
     'App\\Presenters\\SignPresenter' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\SignPresenter.php',
       'time' => 1513509097,
     ),
+    'App\\Presenters\\UsersPresenter' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\UsersPresenter.php',
+      'time' => 1514387810,
+    ),
     'App\\RouterFactory' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\router\\RouterFactory.php',
       'time' => 1513509097,
     ),
-    'App\\Presenters\\UsersPresenter' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\UsersPresenter.php',
-      'time' => 1514367716,
-    ),
-    'App\\Model\\UserManager' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1514370350,
-    ),
-    'App\\Model\\DuplicateNameException' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1514370350,
-    ),
-    'App\\Presenters\\HomepagePresenter' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\HomepagePresenter.php',
-      'time' => 1514370441,
-    ),
   ),
   1 => 
   array (
-    'Kdyby\\Facebook\\DI\\FacebookExtension' => 3,
-    'App\\Presenters\\UsersModel' => 3,
     'Nette\\Environment' => 3,
   ),
 );

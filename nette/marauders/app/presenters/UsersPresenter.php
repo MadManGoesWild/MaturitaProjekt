@@ -24,6 +24,11 @@ class UsersPresenter extends BasePresenter
     
     public function renderView($id) {
         $this->template->users = $this->userManager->getById($id);
-    }    
+    }
+
+    public function actionDelete($id) {           
+        $this->userManager->delete($id);
+        $this->redirect("Users:users");
+        }
         
 }

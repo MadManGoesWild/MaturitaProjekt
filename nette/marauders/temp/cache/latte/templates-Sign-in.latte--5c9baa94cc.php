@@ -36,26 +36,34 @@ class Template5c9baa94cc extends Latte\Runtime\Template
 	function blockContent($_args)
 	{
 		extract($_args);
+?>
+
+<div class="container-fluid">
+<?php
 		$this->renderBlock('title', get_defined_vars());
 ?>
 
 <?php
-		/* line 4 */ $_tmp = $this->global->uiControl->getComponent("signInForm");
-		if ($_tmp instanceof Nette\Application\UI\IRenderable) $_tmp->redrawControl(null, false);
-		$_tmp->render();
+		$this->createTemplate('../components/form.latte', $this->params, "import")->render();
+		$this->renderBlock('form', ['signInForm'] + $this->params, 'html');
 ?>
+        
+        <p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("fbLogin-open!")) ?>">Login using facebook</a></p>
 
-<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("fbLogin-open!")) ?>">Login using facebook</a></p>
+        <p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("up")) ?>">Ještě nemáš účet? Zaregistruj se!</a></p>
 
-<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("up")) ?>">Ještě nemáš účet? Zaregistruj se!</a></p>
-<?php
+</div>
+
+<style>
+
+</style><?php
 	}
 
 
 	function blockTitle($_args)
 	{
 		extract($_args);
-?><h1>Přihlásit se</h1>
+?>    <h1>Přihlásit se</h1>
 <?php
 	}
 

@@ -43,13 +43,25 @@ class Templatef71d2c944e extends Latte\Runtime\Template
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("default")) ?>"><i class="fa fa-compass" aria-hidden="true" 
+                <a class="navbar-brand" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>"><i class="fa fa-compass" aria-hidden="true" 
                        style="color: white; font-size: 150%;">  MARAUDER'S MAP</i></a>
             </div>
             <ul class="nav navbar-nav navbar-right">
 <?php
 		if ($user->isLoggedIn()) {
-			?>                    <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Users:users")) ?>"><i class="fa fa-address-card" aria-hidden="true">  Uživatelé</i></a></li>
+			if (in_array('administrator',$user->getRoles()) || in_array('user',$user->getRoles())) {
+				?>                    <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Users:users")) ?>"><i class="fa fa-address-card" aria-hidden="true">  Uživatelé</i></a></li>
+<?php
+			}
+?>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 150%">
+                        <i class="fa fa-map" aria-hidden="true"> Motivy</i><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="changeTheme()">Night</a></li>
+                                <li><a href="#">Silver</a></li>
+                                <li><a href="#">Retro</a></li>
+                            </ul>
+                        </li>
                     <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:out")) ?>"><i class="fa fa-sign-out" aria-hidden="true">  Odhlásit se</i></a></li>
 <?php
 		}
@@ -68,7 +80,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 		$iterations = 0;
 		foreach ($flashes as $flash) {
 			?>	<div<?php if ($_tmp = array_filter(['flash', $flash->type])) echo ' class="', LR\Filters::escapeHtmlAttr(implode(" ", array_unique($_tmp))), '"' ?>><?php
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 41 */ ?></div>
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 51 */ ?></div>
 <?php
 			$iterations++;
 		}
@@ -82,6 +94,10 @@ class Templatef71d2c944e extends Latte\Runtime\Template
             <p  class="panel-footer">Copyright &copy; SŠPU Opava, Antonín Dulava 2017</p>
         </footer>
             
+        
+
+
+        
 <?php
 		$this->renderBlock('scripts', get_defined_vars());
 ?>
@@ -95,7 +111,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 41');
+		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 51');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -114,7 +130,12 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 53 */ ?>/nette.ajax.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 67 */ ?>/nette.ajax.js"></script>
+        <script>
+        function changeTheme(){
+            console.log("konozola");
+        }
+        </script>
 <?php
 	}
 
