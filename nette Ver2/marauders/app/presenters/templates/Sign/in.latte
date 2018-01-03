@@ -1,0 +1,101 @@
+{block content}
+
+<div class="container-fluid">
+    <div class="SignInCard">
+        <div class="outset">
+            <h1 n:block=title id="rcorners1">Přihlásit se</h1>
+
+                {import '../components/form.latte'}
+                {include form signInForm}                      
+                <p id="registrovani"><a n:href="up" class="novyUcet">Ještě nemáš účet? Zaregistruj se!</a></p>
+                <button id="roundButton" n:href="fbLogin-open!" class="fa fa-facebook"> Přihlášení pomocí Facebooku</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    #rcorners1 {
+        border-radius: 25px;
+        background: #73AD21;
+        margin-top: 1%;
+        background-color: #808080;
+}
+
+    input {
+        margin-left: 5%;
+        margin-bottom: 5%;
+        margin-top: 1%;
+        height: 40px;
+        text-align: left;
+    }
+    
+    label{
+            margin-top: 3%;
+            margin-left: -100%;
+    }
+    
+    #rcorners2 {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        padding: 20px; 
+        width: 200px;
+        height: 150px;    
+    }
+
+    
+    .outset{
+            border-radius: 20px;
+            margin-right: 35%;
+            margin-left: 35%;
+            background-color: #d3d3d3
+    }
+    
+    #frm-signInForm {
+            text-align: center;
+            margin-left: 5%;
+            margin-right: 30%;
+            margin-top: 5%;
+            font-size: 170%;
+            font-family: monospace;
+    }
+   
+    .SignInCard{
+        margin-top:5%
+            
+    }
+    
+    h1 {
+        text-align: center;
+        font-family: monospace;
+        color: #FFFAF0
+    }
+    
+    #frm-signInForm-remember{
+        width: 20px;
+        height: 20px;
+        display:inline;
+        margin-left: 0%;
+
+    }
+    
+    input[name="send"] {
+        display:inline;
+        text-align: center;
+    }
+    
+    #roundButton{
+        font-size: 20px;
+        border-radius: 12px;
+        background-color: #3B5998;
+        color: white;
+        padding: 1%;
+        margin-left: 2%;
+        margin-bottom: 3%
+    }
+    
+    #registrovani {
+        margin-left: 3%;
+        font-size: 120%
+    }
+    
+</style>

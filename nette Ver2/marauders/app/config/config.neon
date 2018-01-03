@@ -1,0 +1,40 @@
+#
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+#
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=test'
+	user:
+	password:
+	options:
+		lazy: yes
+
+
+services:
+	- App\Model\UserManager
+	- App\Forms\FormFactory
+	- App\Forms\SignInFormFactory
+	- App\Forms\SignUpFormFactory
+	router: App\RouterFactory::createRouter
+
+extensions:
+	facebook: Kdyby\Facebook\DI\FacebookExtension
+
+facebook:
+	appId: "1133172913452464"
+	appSecret: "89f9cee28aef57141c73b13ee83861f9"
+	permissions: [public_profile, email] # theese are the default read permissions, you might need to
+	graphVersion: v2.3
