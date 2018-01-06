@@ -49,8 +49,8 @@ class Template0ada74d4cb extends Latte\Runtime\Template
 		if ($_tmp instanceof Nette\Application\UI\IRenderable) $_tmp->redrawControl(null, false);
 		$_tmp->render();
 ?>
-
-            <p id="prihlaseni"><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("in")) ?>">Už máš účet? Přihlaš se!</a></p>
+            
+            <p><a id="prihlaseni" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("in")) ?>">Už máš účet? Přihlaš se!</a></p>
         </div>
     </div>
 </div>
@@ -76,6 +76,7 @@ class Template0ada74d4cb extends Latte\Runtime\Template
             margin-right: 35%;
             margin-left: 35%;
             background-color: #d3d3d3;
+           
             
     }
     
@@ -86,6 +87,7 @@ class Template0ada74d4cb extends Latte\Runtime\Template
             margin-top: 5%;
             font-size: 150%;
             font-family: monospace;
+             margin-bottom: 2%;
     }
    
     .SignUpCard{
@@ -128,7 +130,7 @@ class Template0ada74d4cb extends Latte\Runtime\Template
     
     #prihlaseni {
         margin-left: 3%;
-        font-size: 120%
+        font-size: 120%;
     }
     
 </style><?php

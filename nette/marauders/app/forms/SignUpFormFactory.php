@@ -40,7 +40,7 @@ class SignUpFormFactory
 			->setRequired('Zadej prosím svůj email.');
 
 		$form->addPassword('password', 'Heslo:')
-			->setOption('description', sprintf('at least %d characters', self::PASSWORD_MIN_LENGTH))
+			->setOption('description', sprintf('minimálně %d znaků', self::PASSWORD_MIN_LENGTH))
 			->setRequired('Prosím zadej své heslo')
 			->addRule($form::MIN_LENGTH, null, self::PASSWORD_MIN_LENGTH);
 

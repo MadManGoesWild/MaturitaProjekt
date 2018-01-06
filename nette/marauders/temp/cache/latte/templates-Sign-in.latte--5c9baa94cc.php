@@ -71,8 +71,8 @@ class Template5c9baa94cc extends Latte\Runtime\Template
     }
     
     label{
-            margin-top: 3%
-        
+            margin-top: 3%;
+            margin-left: -100%;
     }
     
     #rcorners2 {
@@ -81,12 +81,8 @@ class Template5c9baa94cc extends Latte\Runtime\Template
         padding: 20px; 
         width: 200px;
         height: 150px;    
-}
-
-    td {
-        margin-left:50%;
-    
     }
+
     
     .outset{
             border-radius: 20px;
@@ -124,9 +120,8 @@ class Template5c9baa94cc extends Latte\Runtime\Template
     }
     
     input[name="send"] {
-        margin-right: -42%;
         display:inline;
-        float: left;
+        text-align: center;
     }
     
     #roundButton{

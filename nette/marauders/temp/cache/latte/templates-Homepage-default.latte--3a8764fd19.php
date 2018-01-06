@@ -131,46 +131,47 @@ class Template3a8764fd19 extends Latte\Runtime\Template
     </script>
     <script>
         setInterval(getLocation, 5000);
-        
+
         var markersArr = [];
         function clearOverlays(){
-            for(var i = 0; i < markersArr.length; i++){
-                markersArr[i].setMap(null);
+          for (var i = 0; i < markersArr.length; i++ ) {
+              markersArr[i].setMap(null);
             }
-        markersArr.length = 0;
-        }
-        
-        function getLocation(){
-            console.log("Funkce funguje");
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                    };
-                sendData(pos);
-            }); 
+            markersArr.length = 0;
         }
 
-        function drawMarkers(data){
-            let pos;
-            let marker;
-            console.log("Data",data);
-            clearOverlays();
-            for(let position of data.message){
-                pos = {
-                    lat: Number(position.latitude),
-                    lng: Number(position.longitude)
+        function getLocation(){
+            navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
             };
-            /*marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                label: "Uživatel",
-                title: 'Tady se nachází uživatel!'
+            sendData(pos);
+        }); 
+
+      }
+
+      function drawMarkers(data){
+        console.log("Data: ", data);
+        let pos;
+        let marker;
+        clearOverlays();
+        for(let position of data.message){
+          pos = {
+            lat: Number(position.Latitude),
+            lng: Number(position.Longitude)
+          };
+          
+          marker = new google.maps.Marker({
+              position: pos,
+              map: map,
+              label: "" + position.users_id,
+              title: 'Tady se nachází uživatel!',
             });
-            markersArr.push(marker);*/
+            markersArr.push(marker);   
         }
-    
-    }
+        
+      }
 
         function getData(){
           $.ajax({
@@ -188,7 +189,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
                     drawMarkers(success);
                 }     
             });
-        }
+        }     
 
         function sendData(position){            
             $.ajax({
@@ -204,11 +205,12 @@ class Template3a8764fd19 extends Latte\Runtime\Template
                 },
                 // Při úspěchu se vypíše do konzole hláška         
                 success: function(success){
-                    console.log("Od uživatele");
+                    console.log("Uživatel");
                     getData();
                 }     
             });
         }
+        
         
 </script>
 <?php

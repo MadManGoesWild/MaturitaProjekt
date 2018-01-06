@@ -1,4 +1,4 @@
-    // Note: This example requires that you consent to location sharing when
+﻿    // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you. 49.93866, 17.90257
@@ -8,7 +8,8 @@
         getLocation();
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 49.93866, lng: 17.90257},
-          zoom: 14
+          zoom: 14,
+          styles: []
         });
 
         infoWindow = new google.maps.InfoWindow;
@@ -24,11 +25,6 @@
 
             var contentString = "Poloha uživatele:"+" "+position.coords.latitude +", "+position.coords.longitude;
 
-            var infowindow = new google.maps.InfoWindow({
-              content: contentString
-            });
-
-
             enabledHighAccuracy: true;
 
             map.setCenter(pos);
@@ -36,11 +32,12 @@
             var marker = new google.maps.Marker({
               position: pos,
               map: map,
-              label: "Uži" + position.users_id,
-              title: 'Tady se nachází uživatel!'
+              title: 'xxx!'
             });   
 
-            marker.addListener('mouseover', function() {
+            marker.addListener('mouseover', function() {           
+              infoWindow.setPosition(pos);
+              infoWindow.setContent('Toto jste vy!');
               infoWindow.open(map, marker);
             });
           }, 
@@ -63,6 +60,7 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
 
 
 

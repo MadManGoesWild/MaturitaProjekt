@@ -30,10 +30,11 @@
                     {if in_array('administrator',$user->getRoles()) || in_array('user',$user->getRoles())}
                     <li><a n:href="Users:users" style="font-size: 150%"><i class="fa fa-address-card" aria-hidden="true">  Uživatelé</i></a></li>
                     {/if}
+                    <li><a href="#" style="font-size: 150%"><i class="fa fa-map-marker" aria-hidden="true"> Oblíbené místo</i></a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 150%">
                         <i class="fa fa-map" aria-hidden="true"> Motivy</i><span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" onclick="changeTheme()">Night</a></li>
+                                <li><a href="#" id="night">Night</a></li>
                                 <li><a href="#">Silver</a></li>
                                 <li><a href="#">Retro</a></li>
                             </ul>
@@ -66,7 +67,15 @@
             padding-top: 10px;
             padding-bottom: 10px;
             width: 100%;
+            position: absolute;
+            bottom: 0;
         }
+        
+        #copyright{
+                text-align: center;
+            
+        }
+        
         </style>
         
         
@@ -75,11 +84,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="{$basePath}/nette.ajax.js"></script>
-        <script>
-        function changeTheme(){
-            console.log("konozola");
-        }
-        </script>
+        
+        <script>      
+            </script>    
 	{/block}
 </body>
 </html>

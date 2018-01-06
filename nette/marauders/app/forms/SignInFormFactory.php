@@ -31,10 +31,10 @@ class SignInFormFactory
 	public function create(callable $onSuccess)
 	{
 		$form = $this->factory->create();
-		$form->addText('username', 'Username:')
+		$form->addText('username', 'Už.jméno:')
 			->setRequired('Vlož prosím své uživatelské jméno.');
 
-		$form->addPassword('password', 'Password:')
+		$form->addPassword('password', 'Heslo:')
 			->setRequired('Vlož prosím své heslo.');
 
 		$form->addCheckbox('remember', ' Zapamatuj si mě');

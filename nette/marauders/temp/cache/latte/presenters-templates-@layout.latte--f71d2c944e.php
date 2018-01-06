@@ -54,10 +54,11 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 <?php
 			}
 ?>
+                    <li><a href="#" style="font-size: 150%"><i class="fa fa-map-marker" aria-hidden="true"> Oblíbené místo</i></a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 150%">
                         <i class="fa fa-map" aria-hidden="true"> Motivy</i><span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" onclick="changeTheme()">Night</a></li>
+                                <li><a href="#" id="night">Night</a></li>
                                 <li><a href="#">Silver</a></li>
                                 <li><a href="#">Retro</a></li>
                             </ul>
@@ -80,7 +81,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 		$iterations = 0;
 		foreach ($flashes as $flash) {
 			?>	<div<?php if ($_tmp = array_filter(['flash', $flash->type])) echo ' class="', LR\Filters::escapeHtmlAttr(implode(" ", array_unique($_tmp))), '"' ?>><?php
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 51 */ ?></div>
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 52 */ ?></div>
 <?php
 			$iterations++;
 		}
@@ -104,7 +105,15 @@ class Templatef71d2c944e extends Latte\Runtime\Template
             padding-top: 10px;
             padding-bottom: 10px;
             width: 100%;
+            position: absolute;
+            bottom: 0;
         }
+        
+        #copyright{
+                text-align: center;
+            
+        }
+        
         </style>
         
         
@@ -121,7 +130,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 51');
+		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 52');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -140,12 +149,10 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 77 */ ?>/nette.ajax.js"></script>
-        <script>
-        function changeTheme(){
-            console.log("konozola");
-        }
-        </script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 86 */ ?>/nette.ajax.js"></script>
+        
+        <script>      
+            </script>    
 <?php
 	}
 

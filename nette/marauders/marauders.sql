@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Ned 10. pro 2017, 21:44
+-- Vytvořeno: Čtv 04. led 2018, 00:05
 -- Verze serveru: 10.1.13-MariaDB
 -- Verze PHP: 7.0.5
 
@@ -60,8 +60,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`) VALUES
 (6, 'administrator', 'administrator', 'admin@admin.cz', 'administrator'),
-(7, 'administrator', '$2y$10$ALkQabbacpOZGLyYrccjMOpl06Erj4M6rB/Ko3HHoyHGKh5OwXlzm', 'administrator@admin.cz', 'guest'),
-(8, 'admin', '$2y$10$qLNTsvRb.Mt7O1Wt1pFk9evWRqgLAki/12KMqfNbIae5VGcRrkQVu', 'administrator@admin.cz', 'guest');
+(8, 'admin', '$2y$10$qLNTsvRb.Mt7O1Wt1pFk9evWRqgLAki/12KMqfNbIae5VGcRrkQVu', 'administrator@admin.cz', 'administrator');
 
 --
 -- Klíče pro exportované tabulky
@@ -71,6 +70,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`) VALUES
 -- Klíče pro tabulku `position`
 --
 ALTER TABLE `position`
+  ADD UNIQUE KEY `users_id` (`users_id`),
   ADD KEY `fk_position_users_idx` (`users_id`);
 
 --
