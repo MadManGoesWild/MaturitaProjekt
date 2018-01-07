@@ -65,12 +65,12 @@ return array (
     'App\\Model\\UserManager' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1515233662,
+      'time' => 1515242837,
     ),
     'App\\Model\\DuplicateNameException' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\model\\UserManager.php',
-      'time' => 1515233662,
+      'time' => 1515242837,
     ),
   ),
   1 => 

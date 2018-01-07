@@ -55,6 +55,95 @@ class Template3a8764fd19 extends Latte\Runtime\Template
         height: 93%;
         margin: 0;
       }
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
+
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+
+      #infowindow-content {
+        display: none;
+      }
+
+      #map #infowindow-content {
+        display: inline;
+      }
+
+      .pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+      }
+
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
+      #target {
+        width: 345px;
+      }
+      
+      .map-control {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        font-family: 'Roboto','sans-serif';
+        margin: 10px;
+        /* Hide the control initially, to prevent it from appearing
+           before the map loads. */
+        display: none;
+      }
+      /* Display the control once it is inside the map. */
+      #map .map-control { display: block; }
+
+      .selector-control {
+        font-size: 14px;
+        line-height: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
     </style>
 <?php
 	}
@@ -65,7 +154,16 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 		extract($_args);
 		if ($user->isLoggedIn()) {
 ?>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
+    <div id="style-selector-control"  class="map-control">
+      <select id="style-selector" class="selector-control">
+        <option value="default" selected="selected">Default</option>
+        <option value="silver">Silver</option>
+        <option value="night">Night</option>
+        <option value="retro">Retro</option>
+      </select>
+    </div>
 <?php
 		}
 		else {
@@ -74,7 +172,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
         <div class="row text-center">
           <div class="col-lg-4 col-md-6 mb-8">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 24 */ ?>/images/projekt1a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 122 */ ?>/images/projekt1a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Připoj se!</h4>
                 <p class="card-text">Neváhej a připoj se do nově vznikající webové aplikace. Vše je zdarma.</p>
@@ -87,7 +185,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
              
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 37 */ ?>/images/projekt2a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 135 */ ?>/images/projekt2a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Najdi své přátele!</h4>
                 <p class="card-text">Pozvi své přátele do této webové aplikace a zjisti, kde se právě nachází. Zjednodušte si společné setkání.</p>
@@ -100,7 +198,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 50 */ ?>/images/projekt3a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 148 */ ?>/images/projekt3a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Měj přehled!</h4>
                 <p class="card-text">Přehledná mapa pomáhá k jednoduchosti, vše na jednom místě.</p>
@@ -127,13 +225,13 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 ?>
 	<script src="functions.js"></script>
         <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4pGibItpUEhjGsEydo_s38kRoelW46a4&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4pGibItpUEhjGsEydo_s38kRoelW46a4&libraries=places&callback=initMap">
     </script>
     <script>
         setInterval(getLocation, 5000);
 
         var markersArr = [];
-        function clearOverlays(){
+        function clearMarkers(){
           for (var i = 0; i < markersArr.length; i++ ) {
               markersArr[i].setMap(null);
             }
@@ -155,7 +253,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
         console.log("Data: ", data);
         let pos;
         let marker;
-        clearOverlays();
+        clearMarkers();
         for(let position of data.message){
           pos = {
             lat: Number(position.Latitude),
@@ -166,7 +264,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
               position: pos,
               map: map,
               label: "" + position.users_id,
-              title: 'Tady se nachází uživatel!',
+              title: 'Tady se nachází uživatel!'
             });
             markersArr.push(marker);   
         }

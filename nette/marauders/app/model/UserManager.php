@@ -27,6 +27,14 @@ class UserManager implements Nette\Security\IAuthenticator
                 COLUMN_LATITUDE = 'latitude',
                 COLUMN_LONGITUDE = 'longitude',
                 COLUMN_ISACTIVE = 'isActive';
+        
+        const
+                TABLE_PLACE = 'place',
+                COLUMN_LAT = 'latitude',
+                COLUMN_LONG = 'longitude',
+                COLUMN_TEXT = 'text',
+                COLUMN_RATING = 'rating',
+                COLUMN_FOTO = 'foto';
 
 	/** @var Nette\Database\Context */
 	private $database;
@@ -104,10 +112,6 @@ class UserManager implements Nette\Security\IAuthenticator
         
         public function getPosition(){
             return $this->database->table(self::TABLE_LOCATION)->where(self::COLUMN_ISACTIVE,1)->fetchAll();         
-        }
-        
-        public function getUsername($username){
-            return $this->database->table(self::TABLE_NAME)->where(self::COLUMN_NAME,$username);          
         }
         
         public function getAll($column = 'username'){

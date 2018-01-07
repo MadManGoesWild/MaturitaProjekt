@@ -55,14 +55,6 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 			}
 ?>
                     <li><a href="#" style="font-size: 150%"><i class="fa fa-map-marker" aria-hidden="true"> Oblíbené místo</i></a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 150%">
-                        <i class="fa fa-map" aria-hidden="true"> Motivy</i><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" id="night">Night</a></li>
-                                <li><a href="#">Silver</a></li>
-                                <li><a href="#">Retro</a></li>
-                            </ul>
-                        </li>
                     <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:out")) ?>"><i class="fa fa-sign-out" aria-hidden="true">  Odhlásit se</i></a></li>
 <?php
 		}
@@ -81,7 +73,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 		$iterations = 0;
 		foreach ($flashes as $flash) {
 			?>	<div<?php if ($_tmp = array_filter(['flash', $flash->type])) echo ' class="', LR\Filters::escapeHtmlAttr(implode(" ", array_unique($_tmp))), '"' ?>><?php
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 52 */ ?></div>
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 44 */ ?></div>
 <?php
 			$iterations++;
 		}
@@ -130,7 +122,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 52');
+		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 44');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -149,7 +141,7 @@ class Templatef71d2c944e extends Latte\Runtime\Template
 	<script src="https://use.fontawesome.com/30be85f70d.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 86 */ ?>/nette.ajax.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 78 */ ?>/nette.ajax.js"></script>
         
         <script>      
             </script>    
