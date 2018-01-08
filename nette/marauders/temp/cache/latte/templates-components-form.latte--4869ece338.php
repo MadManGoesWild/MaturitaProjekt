@@ -1,9 +1,9 @@
 <?php
-// source: C:\xampp\htdocs\marauders\app\presenters\templates\components\form.latte
+// source: C:\xampp\htdocs\nette\marauders\app\presenters\templates\components\form.latte
 
 use Latte\Runtime as LR;
 
-class Templatef3bb8466ab extends Latte\Runtime\Template
+class Template4869ece338 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'form' => 'blockForm',

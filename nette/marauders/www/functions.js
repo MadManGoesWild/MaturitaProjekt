@@ -317,17 +317,31 @@
         controlUI.addEventListener('click', function() {
           map.setCenter(centr);
         });
-
       }
+
+
 
       function initMap() {
         getLocation();
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 49.93866, lng: 17.90257},
           zoom: 14,
           styles: [],
           scaleControl: true
         });
+        directionsDisplay.setMap(map);
+
+        var control = document.getElementById('floating-panel');
+        control.style.display = 'block';
+
+
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+        document.getElementById('travel-selector').addEventListener('change', onChangeHandler);
 
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
@@ -346,6 +360,13 @@
         styleSelector.addEventListener('change', function() {
           map.setOptions({styles: styles[styleSelector.value]});
         });
+
+
+        var travelControl = document.getElementById('travel-selector-control');
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(travelControl);
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(control);
+
+        var travelSelector = document.getElementById('travel-selector');
 
         var centerControlDiv = document.createElement('div');
         var centerControl = new CenterControl(centerControlDiv, map);
@@ -425,6 +446,23 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var selectedMode = document.getElementById('travel-selector').value;
+        var start = new google.maps.LatLng(centr);
+        var end = document.getElementById('end').value;
+        directionsService.route({
+          origin: start,
+          destination: end,
+          travelMode: google.maps.TravelMode[selectedMode]
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {

@@ -1,9 +1,9 @@
 <?php
-// source: C:\xampp\htdocs\marauders\app\presenters/templates/Sign/up.latte
+// source: C:\xampp\htdocs\nette\marauders\app\presenters/templates/Sign/in.latte
 
 use Latte\Runtime as LR;
 
-class Template0ada74d4cb extends Latte\Runtime\Template
+class Template7e4c9d5cd1 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'content' => 'blockContent',
@@ -37,23 +37,23 @@ class Template0ada74d4cb extends Latte\Runtime\Template
 	{
 		extract($_args);
 ?>
+
 <div class="container-fluid">
-    <div class="SignUpCard">
+    <div class="SignInCard">
         <div class="outset">
 <?php
 		$this->renderBlock('title', get_defined_vars());
 ?>
 
 <?php
-		/* line 7 */ $_tmp = $this->global->uiControl->getComponent("signUpForm");
-		if ($_tmp instanceof Nette\Application\UI\IRenderable) $_tmp->redrawControl(null, false);
-		$_tmp->render();
-?>
-            
-            <p><a id="prihlaseni" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("in")) ?>">Už máš účet? Přihlaš se!</a></p>
+		$this->createTemplate('../components/form.latte', $this->params, "import")->render();
+		$this->renderBlock('form', ['signInForm'] + $this->params, 'html');
+		?>                <p id="registrovani"><a class="novyUcet" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("up")) ?>">Ještě nemáš účet? Zaregistruj se!</a></p>
+                <button id="roundButton" class="fa fa-facebook" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("fbLogin-open!")) ?>"> Přihlášení pomocí Facebooku</button>
         </div>
     </div>
 </div>
+
 <style>
     #rcorners1 {
         border-radius: 25px;
@@ -70,29 +70,39 @@ class Template0ada74d4cb extends Latte\Runtime\Template
         text-align: left;
     }
     
+    label{
+            margin-top: 3%;
+            margin-left: -100%;
+    }
+    
+    #rcorners2 {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        padding: 20px; 
+        width: 200px;
+        height: 150px;    
+    }
+
     
     .outset{
             border-radius: 20px;
             margin-right: 35%;
             margin-left: 35%;
-            background-color: #d3d3d3;
-           
-            
+            background-color: #d3d3d3
     }
     
-    #frm-signUpForm {
+    #frm-signInForm {
             text-align: center;
             margin-left: 5%;
             margin-right: 30%;
             margin-top: 5%;
-            font-size: 150%;
+            font-size: 170%;
             font-family: monospace;
-             margin-bottom: 2%;
     }
    
-    .SignUpCard{
-        margin-top:5%;
-        
+    .SignInCard{
+        margin-top:5%
+            
     }
     
     h1 {
@@ -101,36 +111,32 @@ class Template0ada74d4cb extends Latte\Runtime\Template
         color: #FFFAF0
     }
     
-    #frm-signInForm-username{
+    #frm-signInForm-remember{
         width: 20px;
         height: 20px;
         display:inline;
+        margin-left: 0%;
 
-    }
-    
-    #frm-signInForm-email{
-        width: 20px;
-        height: 20px;
-        display:inline;
-
-    }
-    
-    #frm-signInForm-password{
-        width: 20px;
-        height: 20px;
-        margin-left: 10%;
     }
     
     input[name="send"] {
-        margin-right: -42%;
         display:inline;
-        float: left;
+        text-align: center;
     }
     
+    #roundButton{
+        font-size: 20px;
+        border-radius: 12px;
+        background-color: #3B5998;
+        color: white;
+        padding: 1%;
+        margin-left: 2%;
+        margin-bottom: 3%
+    }
     
-    #prihlaseni {
+    #registrovani {
         margin-left: 3%;
-        font-size: 120%;
+        font-size: 120%
     }
     
 </style><?php
@@ -140,7 +146,7 @@ class Template0ada74d4cb extends Latte\Runtime\Template
 	function blockTitle($_args)
 	{
 		extract($_args);
-?>            <h1 id="rcorners1">Registrace</h1>
+?>            <h1 id="rcorners1">Přihlásit se</h1>
 <?php
 	}
 

@@ -1,9 +1,9 @@
 <?php
-// source: C:\xampp\htdocs\marauders\app\presenters/templates/Homepage/default.latte
+// source: C:\xampp\htdocs\nette\marauders\app\presenters/templates/Homepage/default.latte
 
 use Latte\Runtime as LR;
 
-class Template3a8764fd19 extends Latte\Runtime\Template
+class Templatede84a39f26 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'head' => 'blockHead',
@@ -48,11 +48,12 @@ class Template3a8764fd19 extends Latte\Runtime\Template
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 90%;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 93%;
+        height: 100%;
         margin: 0;
       }
       #description {
@@ -154,8 +155,15 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 		extract($_args);
 		if ($user->isLoggedIn()) {
 ?>
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <input id="pac-input" class="controls" type="text" placeholder="Hledat místa">
     <div id="map"></div>
+    <div id="floating-panel" style="font-size: 120%">
+      <strong>Cíl: </strong>
+      <select id="end">
+        <option>Žádný</option>
+        <option value="krmelin, cz">MarkerYou</option>
+      </select>
+    </div>
     <div id="style-selector-control"  class="map-control">
       <select id="style-selector" class="selector-control">
         <option value="default" selected="selected">Default</option>
@@ -163,6 +171,15 @@ class Template3a8764fd19 extends Latte\Runtime\Template
         <option value="night">Night</option>
         <option value="retro">Retro</option>
       </select>
+    </div>
+    <div id="travel-selector-control" style="font-size: 120%"> 
+    <b>Prostředek </b>
+    <select id="travel-selector">
+      <option value="DRIVING">Auto</option>
+      <option value="WALKING">Chůze</option>
+      <option value="BICYCLING">Kolo</option>
+      <option value="TRANSIT">MHD</option>
+    </select>
     </div>
 <?php
 		}
@@ -172,7 +189,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
         <div class="row text-center">
           <div class="col-lg-4 col-md-6 mb-8">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 122 */ ?>/images/projekt1a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 139 */ ?>/images/projekt1a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Připoj se!</h4>
                 <p class="card-text">Neváhej a připoj se do nově vznikající webové aplikace. Vše je zdarma.</p>
@@ -185,7 +202,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
              
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 135 */ ?>/images/projekt2a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 152 */ ?>/images/projekt2a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Najdi své přátele!</h4>
                 <p class="card-text">Pozvi své přátele do této webové aplikace a zjisti, kde se právě nachází. Zjednodušte si společné setkání.</p>
@@ -198,7 +215,7 @@ class Template3a8764fd19 extends Latte\Runtime\Template
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 148 */ ?>/images/projekt3a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 165 */ ?>/images/projekt3a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Měj přehled!</h4>
                 <p class="card-text">Přehledná mapa pomáhá k jednoduchosti, vše na jednom místě.</p>
@@ -309,8 +326,92 @@ class Template3a8764fd19 extends Latte\Runtime\Template
             });
         }
         
-        
 </script>
+
+    <script>
+        
+        getFavouriteLocations();
+        
+        var listener;
+        $("#addMarker").click( function(event){
+            event.preventDefault();
+            listener = map.addListener("click", getLatLng);
+        })
+      
+        //ev je pro event
+        function getLatLng(ev){
+            let latitude = ev.latLng.lat();
+            let longitude = ev.latLng.lng();
+            console.log( latitude + ', ' + longitude );
+            let position = {
+                lat: latitude,
+                lng: longitude
+            };
+            var name = prompt("Zadejte název místa: ");
+            
+            if(name == null || name == "")
+                return;
+            marker = new google.maps.Marker({
+              position: position,
+              map: map,
+              label: name,
+              title: 'oblibene misto',
+              icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+            });
+            
+            position.name = name;
+            sendFavouriteLocation(position);
+            google.maps.event.removeListener(listener);
+        }
+        
+        function sendFavouriteLocation(position){
+            $.ajax({
+                type: "POST", 
+                url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("receiveFavouriteLocationData!")) ?>,
+                data: position,
+                error: function(error){
+                    console.log(error);
+                },
+                success: function(success){
+                    console.log(success);
+                }     
+            });
+        }
+        
+        function getFavouriteLocations(){
+            $.ajax({
+                type: "GET",
+                url: <?php echo LR\Filters::escapeJs($this->global->uiControl->link("getFavouriteLocationsData!")) ?>,
+                error: function(error){
+                    console.log(error);
+                },
+                success: function(success){
+                    console.log("oblibene mista", success);
+                    drawLocationMarkers(success);
+                }     
+            });
+        }
+        
+        function drawLocationMarkers(data){
+            let pos;
+            let marker;
+            for(let position of data.message){
+                pos = {
+                  lat: Number(position.latitude),
+                  lng: Number(position.longitude)
+                };
+          
+            marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                label: position.name,
+                icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+              });
+            }
+        }
+        
+    </script>
+
 <?php
 	}
 

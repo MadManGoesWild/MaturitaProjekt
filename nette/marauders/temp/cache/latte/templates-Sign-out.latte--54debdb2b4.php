@@ -1,9 +1,9 @@
 <?php
-// source: C:\xampp\htdocs\marauders\app\presenters/templates/Sign/out.latte
+// source: C:\xampp\htdocs\nette\marauders\app\presenters/templates/Sign/out.latte
 
 use Latte\Runtime as LR;
 
-class Template52cf5baddb extends Latte\Runtime\Template
+class Template54debdb2b4 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'content' => 'blockContent',
