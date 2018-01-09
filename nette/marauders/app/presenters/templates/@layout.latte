@@ -19,7 +19,7 @@
 
 <body>
     <nav class="navbar navbar-inverse" style="margin: 0; height: 5%">
-        <div class="container-fluid" id="kontejner">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" n:href="Homepage:default"><i class="fa fa-compass" aria-hidden="true" 
                        style="color: white; font-size: 150%;">  MARAUDER'S MAP</i></a>
@@ -28,6 +28,7 @@
                 {if $user->isLoggedIn()}
                     {if in_array('administrator',$user->getRoles()) || in_array('user',$user->getRoles())}
                     <li><a n:href="Users:users" style="font-size: 150%"><i class="fa fa-address-card" aria-hidden="true">  Uživatelé</i></a></li>
+                    <li><a n:href="FavouriteLocation:favouriteLocation" style="font-size: 150%"><i class="fa fa-address-card" aria-hidden="true">  Místa</i></a></li>
                     {/if}
                     <li><a href="#" style="font-size: 150%" id="addMarker" ><i class="fa fa-map-marker" aria-hidden="true"> Oblíbené místo</i></a></li>
                     <li><a n:href="Sign:out" style="font-size: 150%"><i class="fa fa-sign-out" aria-hidden="true">  Odhlásit se</i></a></li>
@@ -64,12 +65,8 @@
         
         #copyright{
                 text-align: center;
-            
         }
         
-        #kontejner{
-            color: red !important;
-        }
         </style>
         
         

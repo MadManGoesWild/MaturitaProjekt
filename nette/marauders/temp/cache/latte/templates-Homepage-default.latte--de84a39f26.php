@@ -161,7 +161,6 @@ class Templatede84a39f26 extends Latte\Runtime\Template
       <strong>Cíl: </strong>
       <select id="end">
         <option>Žádný</option>
-        <option value="krmelin, cz">MarkerYou</option>
       </select>
     </div>
     <div id="style-selector-control"  class="map-control">
@@ -177,7 +176,6 @@ class Templatede84a39f26 extends Latte\Runtime\Template
     <select id="travel-selector">
       <option value="DRIVING">Auto</option>
       <option value="WALKING">Chůze</option>
-      <option value="BICYCLING">Kolo</option>
       <option value="TRANSIT">MHD</option>
     </select>
     </div>
@@ -187,9 +185,9 @@ class Templatede84a39f26 extends Latte\Runtime\Template
 ?>
     <div class="Homepage" style="padding-top: 5%">
         <div class="row text-center">
-          <div class="col-lg-4 col-md-6 mb-8">
+          <div class="col-lg-4 col-md-4 mb-4">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 139 */ ?>/images/projekt1a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 137 */ ?>/images/projekt1a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Připoj se!</h4>
                 <p class="card-text">Neváhej a připoj se do nově vznikající webové aplikace. Vše je zdarma.</p>
@@ -200,9 +198,9 @@ class Templatede84a39f26 extends Latte\Runtime\Template
             </div>
           </div>
              
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-4 mb-4">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 152 */ ?>/images/projekt2a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 150 */ ?>/images/projekt2a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Najdi své přátele!</h4>
                 <p class="card-text">Pozvi své přátele do této webové aplikace a zjisti, kde se právě nachází. Zjednodušte si společné setkání.</p>
@@ -213,9 +211,9 @@ class Templatede84a39f26 extends Latte\Runtime\Template
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-4 mb-4">
             <div class="card">
-              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 165 */ ?>/images/projekt3a.png" alt="">
+              <img class="card-img-top" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 163 */ ?>/images/projekt3a.png" alt="">
               <div class="card-body">
                 <h4 class="card-title">Měj přehled!</h4>
                 <p class="card-text">Přehledná mapa pomáhá k jednoduchosti, vše na jednom místě.</p>
@@ -246,7 +244,7 @@ class Templatede84a39f26 extends Latte\Runtime\Template
     </script>
     <script>
         setInterval(getLocation, 5000);
-
+        var shit = false;
         var markersArr = [];
         function clearMarkers(){
           for (var i = 0; i < markersArr.length; i++ ) {
@@ -265,13 +263,38 @@ class Templatede84a39f26 extends Latte\Runtime\Template
         }); 
 
       }
+      
+      function fillSelectOptions(data){
+          if(shit)
+              return;
+          shit = true;
+          navigator.geolocation.getCurrentPosition(function(position) {
+            let pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            
+            let select = document.getElementById("end");
+            for (let position of data.message){
+                if(pos.lat == position.Latitude && pos.lng == position.Longitude){
+                    continue;
+                }
+                let option = document.createElement("option");
+                option.text = position.users_id;
+                option.value = position.Latitude + " " + position.Longitude;
+                select.add(option);
+            }
+        });
+      }
+      
 
       function drawMarkers(data){
+        fillSelectOptions(data);
         console.log("Data: ", data);
-        let pos;
-        let marker;
+        var pos;
+        var marker;
         clearMarkers();
-        for(let position of data.message){
+        for(var position of data.message){
           pos = {
             lat: Number(position.Latitude),
             lng: Number(position.Longitude)
@@ -340,10 +363,10 @@ class Templatede84a39f26 extends Latte\Runtime\Template
       
         //ev je pro event
         function getLatLng(ev){
-            let latitude = ev.latLng.lat();
-            let longitude = ev.latLng.lng();
+            var latitude = ev.latLng.lat();
+            var longitude = ev.latLng.lng();
             console.log( latitude + ', ' + longitude );
-            let position = {
+            var position = {
                 lat: latitude,
                 lng: longitude
             };
@@ -356,7 +379,7 @@ class Templatede84a39f26 extends Latte\Runtime\Template
               map: map,
               label: name,
               title: 'oblibene misto',
-              icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+              icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
             });
             
             position.name = name;
@@ -393,9 +416,9 @@ class Templatede84a39f26 extends Latte\Runtime\Template
         }
         
         function drawLocationMarkers(data){
-            let pos;
-            let marker;
-            for(let position of data.message){
+            var pos;
+            var marker;
+            for(var position of data.message){
                 pos = {
                   lat: Number(position.latitude),
                   lng: Number(position.longitude)

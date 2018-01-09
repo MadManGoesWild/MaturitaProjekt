@@ -111,7 +111,6 @@
       <strong>Cíl: </strong>
       <select id="end">
         <option>Žádný</option>
-        <option value="krmelin, cz">MarkerYou</option>
       </select>
     </div>
     <div id="style-selector-control"  class="map-control">
@@ -127,14 +126,13 @@
     <select id="travel-selector">
       <option value="DRIVING">Auto</option>
       <option value="WALKING">Chůze</option>
-      <option value="BICYCLING">Kolo</option>
       <option value="TRANSIT">MHD</option>
     </select>
     </div>
 {else}
     <div class="Homepage" style="padding-top: 5%">
         <div class="row text-center">
-          <div class="col-lg-4 col-md-6 mb-8">
+          <div class="col-lg-4 col-md-4 mb-4">
             <div class="card">
               <img class="card-img-top" src="{$basePath}/images/projekt1a.png" alt="">
               <div class="card-body">
@@ -147,7 +145,7 @@
             </div>
           </div>
              
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-4 mb-4">
             <div class="card">
               <img class="card-img-top" src="{$basePath}/images/projekt2a.png" alt="">
               <div class="card-body">
@@ -160,7 +158,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-4 mb-4">
             <div class="card">
               <img class="card-img-top" src="{$basePath}/images/projekt3a.png" alt="">
               <div class="card-body">
@@ -233,10 +231,10 @@
       function drawMarkers(data){
         fillSelectOptions(data);
         console.log("Data: ", data);
-        let pos;
-        let marker;
+        var pos;
+        var marker;
         clearMarkers();
-        for(let position of data.message){
+        for(var position of data.message){
           pos = {
             lat: Number(position.Latitude),
             lng: Number(position.Longitude)
@@ -305,10 +303,10 @@
       
         //ev je pro event
         function getLatLng(ev){
-            let latitude = ev.latLng.lat();
-            let longitude = ev.latLng.lng();
+            var latitude = ev.latLng.lat();
+            var longitude = ev.latLng.lng();
             console.log( latitude + ', ' + longitude );
-            let position = {
+            var position = {
                 lat: latitude,
                 lng: longitude
             };
@@ -321,7 +319,7 @@
               map: map,
               label: name,
               title: 'oblibene misto',
-              icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+              icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
             });
             
             position.name = name;
@@ -358,9 +356,9 @@
         }
         
         function drawLocationMarkers(data){
-            let pos;
-            let marker;
-            for(let position of data.message){
+            var pos;
+            var marker;
+            for(var position of data.message){
                 pos = {
                   lat: Number(position.latitude),
                   lng: Number(position.longitude)

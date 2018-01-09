@@ -13,11 +13,9 @@ class LocationManager
 		TABLE_NAME = 'favourite_location',
 		COLUMN_ID = 'id',
 		COLUMN_NAME = 'name',
-		COLUMN_TEXT = 'text',
                 COLUMN_LATITUDE = 'latitude',
                 COLUMN_LONGITUDE = 'longitude',
-		COLUMN_USERS_ID = 'users_id',
-		COLUMN_RATING = 'rating';
+		COLUMN_USERS_ID = 'users_id';
         
 	/** @var Nette\Database\Context */
 	private $database;

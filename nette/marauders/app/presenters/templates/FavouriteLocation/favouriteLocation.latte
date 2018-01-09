@@ -1,0 +1,22 @@
+{block content}
+<div id="content" class="container">
+    <h2>Uživatelé</h2>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th><a n:href="id">ID místa</a></th>
+                <th><a n:href="name">Název místa</a></th>         
+            </tr>            
+        </thead>
+        <tbody>
+            <tr n:foreach="$lokace as $locations">
+                <td>{$locations->id}</td>
+                <td>{$locations->name}</td>
+                <td>
+                    <div style="text-align: center">
+                    <a n:href="delete $locations->id"><button class="btn btn-danger">Smazat</button></a>
+                    </div>
+                    </td>                    
+            </tr>
+        </tbody>     
+    </table>

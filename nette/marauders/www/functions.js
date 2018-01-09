@@ -3,6 +3,7 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you. 49.93866, 17.90257
       var centr=0;
+      var total = 0;
       var styles = {
         default: null,
         silver: [
@@ -336,6 +337,9 @@
         var control = document.getElementById('floating-panel');
         control.style.display = 'block';
 
+        directionsDisplay.addListener('directions_changed', function() {
+          computeTotalDistance(directionsDisplay.getDirections());
+        });
 
         var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -396,12 +400,12 @@
             var marker = new google.maps.Marker({
               position: pos,
               map: map,
-              title: 'xxx!'
+              title: 'Já!'
             });   
 
             marker.addListener('mouseover', function() {           
               infoWindow.setPosition(pos);
-              infoWindow.setContent('Toto jste vy!');
+              infoWindow.setContent(total + ' km');
               infoWindow.open(map, marker);
             });
 
@@ -464,6 +468,14 @@
             window.alert('Directions request failed due to ' + status);
           }
         });
+      }
+
+      function computeTotalDistance(result) {
+        var myroute = result.routes[0];
+        for (var i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
+        }
+        total = Math.round(total / 1000);
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {

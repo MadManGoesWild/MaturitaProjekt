@@ -22,6 +22,11 @@ return array (
       'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\forms\\SignUpFormFactory.php',
       'time' => 1515410278,
     ),
+    'App\\Model\\LocationManager' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\model\\LocationManager.php',
+      'time' => 1515414368,
+    ),
     'App\\Model\\UserManager' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\model\\UserManager.php',
@@ -62,29 +67,20 @@ return array (
       'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\presenters\\SignPresenter.php',
       'time' => 1515410278,
     ),
-    'App\\Presenters\\UsersPresenter' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\presenters\\UsersPresenter.php',
-      'time' => 1515531458,
-    ),
     'App\\RouterFactory' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\router\\RouterFactory.php',
       'time' => 1515410278,
     ),
-    'App\\Model\\LocationManager' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\model\\LocationManager.php',
-      'time' => 1515531511,
-    ),
     'App\\Presenters\\FavouriteLocationPresenter' => 
     array (
-      'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\presenters\\FavouriteLocationPresenter.php',
-      'time' => 1515532606,
+      'file' => 'C:\\xampp\\htdocs\\nette\\marauders\\app\\presenters\\UsersPresenter.php',
+      'time' => 1515530744,
     ),
   ),
   1 => 
   array (
     'Nette\\Environment' => 3,
+    'App\\Presenters\\UsersPresenter' => 0,
   ),
 );
