@@ -322,7 +322,7 @@
 
 
       function initMap() {
-        getLocation();
+        //getLocation();
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var directionsService = new google.maps.DirectionsService;
         map = new google.maps.Map(document.getElementById('map'), {
@@ -452,6 +452,7 @@
         var selectedMode = document.getElementById('travel-selector').value;
         var start = new google.maps.LatLng(centr);
         var end = document.getElementById('end').value;
+        console.log(end);
         directionsService.route({
           origin: start,
           destination: end,
