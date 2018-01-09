@@ -30,9 +30,9 @@ class Template2a875dc109 extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['error'])) trigger_error('Variable $error overwritten in foreach on line 9');
-		if (isset($this->params['name'])) trigger_error('Variable $name overwritten in foreach on line 12');
-		if (isset($this->params['input'])) trigger_error('Variable $input overwritten in foreach on line 12');
+		if (isset($this->params['error'])) trigger_error('Variable $error overwritten in foreach on line 8');
+		if (isset($this->params['name'])) trigger_error('Variable $name overwritten in foreach on line 11');
+		if (isset($this->params['input'])) trigger_error('Variable $input overwritten in foreach on line 11');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -40,10 +40,7 @@ class Template2a875dc109 extends Latte\Runtime\Template
 
 	function blockBootstrap_head($_args)
 	{
-		extract($_args);
-?>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 3 */ ?>/css/styly.css">  
+?>    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <?php
 	}
 
@@ -63,7 +60,7 @@ class Template2a875dc109 extends Latte\Runtime\Template
 <?php
 			$iterations = 0;
 			foreach ($form->ownErrors as $error) {
-				?>            <li><?php echo LR\Filters::escapeHtmlText($error) /* line 9 */ ?></li>
+				?>            <li><?php echo LR\Filters::escapeHtmlText($error) /* line 8 */ ?></li>
 <?php
 				$iterations++;
 			}
@@ -88,33 +85,33 @@ class Template2a875dc109 extends Latte\Runtime\Template
 				if (in_array($input->getOption('type'), ['text', 'select', 'textarea'], TRUE)) {
 					?>                    <?php
 					$_input = is_object($input) ? $input : end($this->global->formsStack)[$input];
-					echo $_input->getControl()->addAttributes(['class' => 'form-control']) /* line 20 */ ?>
+					echo $_input->getControl()->addAttributes(['class' => 'form-control']) /* line 19 */ ?>
 
 <?php
 				}
 				elseif ($input->getOption('type') === 'button') {
 					?>                    <?php
 					$_input = is_object($input) ? $input : end($this->global->formsStack)[$input];
-					echo $_input->getControl() /* line 22 */ ?>
+					echo $_input->getControl() /* line 21 */ ?>
 
 <?php
 				}
 				elseif ($input->getOption('type') === 'checkbox') {
 					?>                    <div class="checkbox"><?php
 					$_input = is_object($input) ? $input : end($this->global->formsStack)[$input];
-					echo $_input->getControl() /* line 24 */ ?></div>
+					echo $_input->getControl() /* line 23 */ ?></div>
 <?php
 				}
 				elseif ($input->getOption('type') === 'radio') {
 					?>                    <div class="radio"><?php
 					$_input = is_object($input) ? $input : end($this->global->formsStack)[$input];
-					echo $_input->getControl() /* line 26 */ ?></div>
+					echo $_input->getControl() /* line 25 */ ?></div>
 <?php
 				}
 				else {
 					?>                    <?php
 					$_input = is_object($input) ? $input : end($this->global->formsStack)[$input];
-					echo $_input->getControl() /* line 28 */ ?>
+					echo $_input->getControl() /* line 27 */ ?>
 
 <?php
 				}
@@ -124,7 +121,7 @@ class Template2a875dc109 extends Latte\Runtime\Template
 				ob_start(function () {});
 				?>                <span class=has-error><?php
 				ob_start();
-				echo LR\Filters::escapeHtmlText($input->error) /* line 31 */;
+				echo LR\Filters::escapeHtmlText($input->error) /* line 30 */;
 				$this->global->ifcontent = ob_get_flush();
 ?></span>
 <?php

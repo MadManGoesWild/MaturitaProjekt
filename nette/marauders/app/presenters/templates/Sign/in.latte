@@ -1,10 +1,12 @@
 {block content}
 
-    <div class="row">  
-        <div class="col-md-6 col-md-offset-3">
-            <div class="form">
-                                {import '../components/bootstrap-form.latte'}
-                {include bootstrap-form signInForm}
+<div class="container-fluid">
+    <div class="SignInCard">
+        <div class="outset">
+            <h1 n:block=title id="rcorners1">Přihlásit se</h1>
+
+                {import '../components/form.latte'}
+                {include form signInForm}                      
                 <p id="registrovani"><a n:href="up" class="novyUcet">Ještě nemáš účet? Zaregistruj se!</a></p>
                 <button id="roundButton" n:href="fbLogin-open!" class="fa fa-facebook"> Přihlášení pomocí Facebooku</button>
         </div>

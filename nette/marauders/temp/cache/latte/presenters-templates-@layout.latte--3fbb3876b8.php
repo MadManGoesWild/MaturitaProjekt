@@ -50,7 +50,7 @@ class Template3fbb3876b8 extends Latte\Runtime\Template
 		if ($user->isLoggedIn()) {
 			if (in_array('administrator',$user->getRoles()) || in_array('user',$user->getRoles())) {
 				?>                    <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Users:users")) ?>"><i class="fa fa-address-card" aria-hidden="true">  Uživatelé</i></a></li>
-                    <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("FavouriteLocation:favouriteLocation")) ?>"><i class="fa fa-address-card" aria-hidden="true">  Místa</i></a></li>
+                    <li><a style="font-size: 150%" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("FavouriteLocation:favouriteLocation")) ?>"><i class="fa fa-flag" aria-hidden="true"></i>  Oblíbená místa</i></a></li>
 <?php
 			}
 ?>

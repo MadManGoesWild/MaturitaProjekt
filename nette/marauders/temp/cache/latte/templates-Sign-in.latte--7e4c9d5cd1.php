@@ -7,10 +7,12 @@ class Template7e4c9d5cd1 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'content' => 'blockContent',
+		'title' => 'blockTitle',
 	];
 
 	public $blockTypes = [
 		'content' => 'html',
+		'title' => 'html',
 	];
 
 
@@ -36,12 +38,16 @@ class Template7e4c9d5cd1 extends Latte\Runtime\Template
 		extract($_args);
 ?>
 
-    <div class="row">  
-        <div class="col-md-6 col-md-offset-3">
-            <div class="form">
+<div class="container-fluid">
+    <div class="SignInCard">
+        <div class="outset">
 <?php
-		$this->createTemplate('../components/bootstrap-form.latte', $this->params, "import")->render();
-		$this->renderBlock('bootstrap-form', ['signInForm'] + $this->params, 'html');
+		$this->renderBlock('title', get_defined_vars());
+?>
+
+<?php
+		$this->createTemplate('../components/form.latte', $this->params, "import")->render();
+		$this->renderBlock('form', ['signInForm'] + $this->params, 'html');
 		?>                <p id="registrovani"><a class="novyUcet" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("up")) ?>">Ještě nemáš účet? Zaregistruj se!</a></p>
                 <button id="roundButton" class="fa fa-facebook" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("fbLogin-open!")) ?>"> Přihlášení pomocí Facebooku</button>
         </div>
@@ -134,6 +140,14 @@ class Template7e4c9d5cd1 extends Latte\Runtime\Template
     }
     
 </style><?php
+	}
+
+
+	function blockTitle($_args)
+	{
+		extract($_args);
+?>            <h1 id="rcorners1">Přihlásit se</h1>
+<?php
 	}
 
 }

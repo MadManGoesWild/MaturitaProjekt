@@ -37,7 +37,7 @@ class Template7921ded0b6 extends Latte\Runtime\Template
 		extract($_args);
 ?>
 <div id="content" class="container">
-    <h2>Uživatelé</h2>
+    <h2>Oblíbené místa</h2>
     <table class="table table-bordered table-responsive table-hover">
         <thead>
             <tr>
