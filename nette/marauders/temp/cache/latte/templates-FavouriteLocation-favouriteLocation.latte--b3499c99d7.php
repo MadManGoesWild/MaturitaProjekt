@@ -1,9 +1,9 @@
 <?php
-// source: C:\xampp\htdocs\nette\marauders\app\presenters/templates/FavouriteLocation/favouriteLocation.latte
+// source: D:\www\marauders\app\presenters/templates/FavouriteLocation/favouriteLocation.latte
 
 use Latte\Runtime as LR;
 
-class Template7921ded0b6 extends Latte\Runtime\Template
+class Templateb3499c99d7 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'content' => 'blockContent',
@@ -37,11 +37,11 @@ class Template7921ded0b6 extends Latte\Runtime\Template
 		extract($_args);
 ?>
 <div id="content" class="container">
-    <h2>Oblíbené místa</h2>
-    <table class="table table-bordered table-responsive table-hover">
+    <h2>Oblíbená místa</h2>
+    <table class="table table-bordered table-responsive table-hover" style="text-align: center;">
         <thead>
             <tr>
-                <th><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("id")) ?>">ID místa</a></th>
+                <th><a style="text-align: center" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("id")) ?>">ID místa</a></th>
                 <th><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("name")) ?>">Název místa</a></th>         
             </tr>            
         </thead>

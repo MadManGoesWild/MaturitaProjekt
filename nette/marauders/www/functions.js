@@ -391,8 +391,6 @@
 
             centr = pos;
 
-            var contentString = "Poloha uživatele:"+" "+position.coords.latitude +", "+position.coords.longitude;
-
             enabledHighAccuracy: true;
 
             map.setCenter(pos);
@@ -405,7 +403,7 @@
 
             marker.addListener('mouseover', function() {           
               infoWindow.setPosition(pos);
-              infoWindow.setContent(total + ' km');
+              infoWindow.setContent('Vzdálenost: '+total + ' km');
               infoWindow.open(map, marker);
             });
 
@@ -475,7 +473,8 @@
         for (var i = 0; i < myroute.legs.length; i++) {
           total += myroute.legs[i].distance.value;
         }
-        total = Math.round(total / 1000);
+        total = (parseFloat(total) / 1000).toFixed(2);
+        
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -485,10 +484,6 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
-
-
-
 
 
       /*function getLocation(){

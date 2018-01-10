@@ -20,15 +20,10 @@ class FavouriteLocationPresenter extends BasePresenter
         $this->locationManager = $locationManager;
     }
        
-    public function renderLocations($order = 'id ASC') {
+    public function renderfavouriteLocation($order = 'id ASC') {
         // Vložení výsledku userManager do proměnné userove
         $this->template->lokace = $this->locationManager->getAll($order);
     }    
-    
-    public function renderView($id) {
-        // Vložení výsledku userManager do proměnné users
-        $this->template->locations = $this->locationManager->getById($id);
-    }
 
     public function actionDelete($id) {
         // Smazání podle ID
