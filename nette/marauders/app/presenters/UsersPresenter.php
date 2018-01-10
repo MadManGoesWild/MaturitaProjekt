@@ -24,11 +24,6 @@ class UsersPresenter extends BasePresenter
         // Vložení výsledku userManager do proměnné userove
         $this->template->userove = $this->userManager->getAll($order);
     }    
-    
-    public function renderView($id) {
-        // Vložení výsledku userManager do proměnné users
-        $this->template->users = $this->userManager->getById($id);
-    }
 
     public function actionDelete($id) {
         // Smazání podle ID

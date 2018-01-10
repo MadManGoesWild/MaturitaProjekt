@@ -1,21 +1,22 @@
 {block content}
-<div id="content" class="container">
-    <h2>Uživatelé</h2>
+<div id="content" class="container" style="font-family: Verdana, Geneva, sans-serif;">
+    <h2 class="text-center">Seznam uživatelů</h2>
     <table class="table table-bordered table-responsive table-hover">
-        <thead>
+        <thead style="background: lightgrey">
             <tr>
-                <th><a n:href="id">ID</a></th>
-                <th><a n:href="username">Jméno uživatele</a></th>
-                <th><a n:href="email">Email</a></th>
-                <th><a n:href="role">Práva</a></th>           
+                <th class="text-center"><a href="#" style="color:black;">ID</a></th>
+                <th class="text-center"><a href="#" style="color:black;">Jméno uživatele</a></th>
+                <th class="text-center"><a href="#" style="color:black;">Email</a></th>
+                <th class="text-center"><a href="#" style="color:black;">Práva</a></th>
+                <th class="text-center"><a href="#" style="color:black;">Akce</a></th>
             </tr>            
         </thead>
         <tbody>
             <tr n:foreach="$userove as $users">
-                <td>{$users->id}</td>
-                <td>{$users->username}</td>
-                <td>{$users->email}</td>
-                <td>{$users->role}</td>
+                <td class="text-center">{$users->id}</td>
+                <td class="text-center">{$users->username}</td>
+                <td class="text-center">{$users->email}</td>
+                <td class="text-center">{$users->role}</td>
                 <td>
                     <div style="text-align: center">
                     <a n:href="delete $users->id"><button class="btn btn-danger">Smazat</button></a>
@@ -24,3 +25,4 @@
             </tr>
         </tbody>     
     </table>
+</div>

@@ -454,7 +454,6 @@
         var selectedMode = document.getElementById('travel-selector').value;
         var start = new google.maps.LatLng(centr);
         var end = document.getElementById('end').value;
-        console.log(end);
         directionsService.route({
           origin: start,
           destination: end,
@@ -473,8 +472,8 @@
         for (var i = 0; i < myroute.legs.length; i++) {
           total += myroute.legs[i].distance.value;
         }
-        total = (parseFloat(total) / 1000).toFixed(2);
-        
+        total = total / 1000;
+        console.log(total);
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {

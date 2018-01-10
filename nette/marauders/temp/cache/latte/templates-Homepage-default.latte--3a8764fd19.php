@@ -1,9 +1,9 @@
 <?php
-// source: D:\www\marauders\app\presenters/templates/Homepage/default.latte
+// source: C:\xampp\htdocs\marauders\app\presenters/templates/Homepage/default.latte
 
 use Latte\Runtime as LR;
 
-class Templateca9e5af0e2 extends Latte\Runtime\Template
+class Template3a8764fd19 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'head' => 'blockHead',
@@ -379,7 +379,7 @@ class Templateca9e5af0e2 extends Latte\Runtime\Template
               map: map,
               label: name,
               title: 'oblibene misto',
-              icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+              icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
             });
             
             position.name = name;
@@ -428,7 +428,7 @@ class Templateca9e5af0e2 extends Latte\Runtime\Template
                 position: pos,
                 map: map,
                 label: position.name,
-                icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
               });
             }
         }

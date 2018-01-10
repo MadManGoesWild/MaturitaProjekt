@@ -1,17 +1,20 @@
 {block content}
-<div id="content" class="container">
-    <h2>Oblíbená místa</h2>
+<div id="content" class="container" style="font-family: Verdana, Geneva, sans-serif;">
+    <h2 class="text-center" style="font-family: Verdana, Geneva, sans-serif">Seznam oblíbených míst</h2>
     <table class="table table-bordered table-responsive table-hover" style="text-align: center;">
-        <thead>
+        <thead style="background: lightgrey">
             <tr>
-                <th><a n:href="id" style="text-align: center">ID místa</a></th>
-                <th><a n:href="name">Název místa</a></th>         
+                <th class="text-center"><a href="#" style="color:black;">ID místa</a></th>
+                <th class="text-center"><a href="#" style="color:black;">Název místa</a></th>
+                <th class="text-center"><a href="#" style="color:black;">ID Autora</a></th>
+                <th class="text-center"><a href="#" style="color:black;">Akce</a></th>
             </tr>            
         </thead>
         <tbody>
             <tr n:foreach="$lokace as $locations">
-                <td>{$locations->id}</td>
-                <td>{$locations->name}</td>
+                <td class="text-center">{$locations->id}</td>
+                <td class="text-center">{$locations->name}</td>
+                <td class="text-center">{$locations->users_id}</td>
                 <td>
                     <div style="text-align: center">
                     <a n:href="delete $locations->id"><button class="btn btn-danger">Smazat</button></a>
@@ -20,3 +23,4 @@
             </tr>
         </tbody>     
     </table>
+</div>
