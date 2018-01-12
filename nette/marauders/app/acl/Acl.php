@@ -9,7 +9,6 @@ class Acl extends Permission {
     public function __construct() {
         //roles
         $this->addRole('guest');
-        $this->addRole('user');
         $this->addRole('administrator');
         // resources
         $this->addResource('Homepage');
@@ -22,7 +21,6 @@ class Acl extends Permission {
         
         $this->deny('guest', 'Homepage', ['insert','update','delete','create']);
         
-        $this->deny('user', ['Homepage','Users'], Permission::ALL);
         
         $this->allow('administrator', Permission::ALL, Permission::ALL);
     }

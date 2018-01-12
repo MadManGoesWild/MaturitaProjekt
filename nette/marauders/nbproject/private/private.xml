@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/FavouriteLocation/favouriteLocation.latte</file>
+            <file>file:/C:/xampp/htdocs/marauders/app/presenters/HomepagePresenter.php</file>
+            <file>file:/C:/xampp/htdocs/marauders/app/acl/Acl.php</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/Sign/in.latte</file>
+            <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/Users/users.latte</file>
             <file>file:/C:/xampp/htdocs/marauders/app/model/LocationManager.php</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/templates/Homepage/default.latte</file>
             <file>file:/C:/xampp/htdocs/marauders/app/presenters/UsersPresenter.php</file>

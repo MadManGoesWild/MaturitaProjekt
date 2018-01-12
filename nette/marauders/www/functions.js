@@ -403,7 +403,7 @@
 
             marker.addListener('mouseover', function() {           
               infoWindow.setPosition(pos);
-              infoWindow.setContent('Vzdálenost: '+total + ' km');
+              infoWindow.setContent('Vzdálenost: '+Math.round(total) + ' km');
               infoWindow.open(map, marker);
             });
 
@@ -473,7 +473,6 @@
           total += myroute.legs[i].distance.value;
         }
         total = total / 1000;
-        console.log(total);
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {

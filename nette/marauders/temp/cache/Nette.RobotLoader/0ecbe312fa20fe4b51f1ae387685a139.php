@@ -57,11 +57,6 @@ return array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\FavouriteLocationPresenter.php',
       'time' => 1515591391,
     ),
-    'App\\Presenters\\HomepagePresenter' => 
-    array (
-      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\HomepagePresenter.php',
-      'time' => 1515414794,
-    ),
     'App\\Presenters\\LoginPresenter' => 
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\LoginPresenter.php',
@@ -81,6 +76,11 @@ return array (
     array (
       'file' => 'C:\\xampp\\htdocs\\marauders\\app\\router\\RouterFactory.php',
       'time' => 1515410278,
+    ),
+    'App\\Presenters\\HomepagePresenter' => 
+    array (
+      'file' => 'C:\\xampp\\htdocs\\marauders\\app\\presenters\\HomepagePresenter.php',
+      'time' => 1515698765,
     ),
   ),
   1 => 
